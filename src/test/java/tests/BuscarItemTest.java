@@ -32,7 +32,6 @@ public class BuscarItemTest {
 	@Test
 	public void deveBuscarItem() throws InterruptedException {
 		
-
 		masterPage.getBuscaItem().buscaItem("AMORTECEDOR");
 	}
 

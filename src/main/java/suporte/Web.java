@@ -24,50 +24,6 @@ public class Web {
 		navegador.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 	}
 
-	public static WebDriver createChromeTest(String name) {
-
-		try {
-			DesiredCapabilities dc = DesiredCapabilities.chrome();
-			dc.setBrowserName("chrome");
-			dc.setPlatform(Platform.LINUX);
-			dc.setCapability("name", name);
-
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-		driver.get("http://192.168.151.89");
-		return driver;
-	}
-
-	public static WebDriver createChromeRemote(String name) {
-
-		try {
-			DesiredCapabilities dc = DesiredCapabilities.firefox();
-			dc.setBrowserName("firefox");
-			dc.setPlatform(Platform.LINUX);
-			dc.setCapability("name", name);
-
-			driver = new RemoteWebDriver(new URL("192.168.108.17"), dc);
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-		driver.get("http://192.168.151.89");
-		return driver;
-	}
-
 	public static WebDriver createChrome() {
 
 		return createChrome("http://192.168.151.93");

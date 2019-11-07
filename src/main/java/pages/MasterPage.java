@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MasterPage {
 
@@ -11,6 +10,7 @@ public class MasterPage {
 	public MasterPage(WebDriver navegador) {
 
 		this.loginPage = new LoginPage(navegador);
+		this.buscaItem = new BuscarItemPage(navegador);
 	}
 
 	public LoginPage getLoginPage() {

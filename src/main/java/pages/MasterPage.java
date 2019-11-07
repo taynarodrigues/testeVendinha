@@ -6,11 +6,18 @@ public class MasterPage {
 
 	private LoginPage loginPage;
 	private BuscarItemPage buscaItem;
+	private AdicionaItemPage adicionaItem;
+	private CarrinhoPage carrinho;
+	private PagamentoPage pagamento;
 
 	public MasterPage(WebDriver navegador) {
 
 		this.loginPage = new LoginPage(navegador);
 		this.buscaItem = new BuscarItemPage(navegador);
+		this.adicionaItem = new AdicionaItemPage(navegador);
+		this.carrinho = new CarrinhoPage(navegador);
+		this.pagamento = new PagamentoPage(navegador);
+		
 	}
 
 	public LoginPage getLoginPage() {
@@ -19,5 +26,17 @@ public class MasterPage {
 	
 	public BuscarItemPage getBuscaItem() {
 		return buscaItem;
+	}
+	
+	public AdicionaItemPage getAdicionaItemPage() {
+		return adicionaItem;
+	}
+	
+	public CarrinhoPage getCarrinhoPage() {
+		return carrinho;
+	}
+	
+	public PagamentoPage getPagamentoPage() {
+		return pagamento;
 	}
 }

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import pages.MasterPage;
 import suporte.Web;
 
-public class BuscarItemTest {
+public class AdicionaItemTest {
 	
 	private WebDriver navegador;
 	private MasterPage masterPage;
@@ -30,9 +30,13 @@ public class BuscarItemTest {
 	}
 	
 	@Test
-	public void deveBuscarItem() throws InterruptedException {
+	public void deveInserirItem() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("AMORTECEDOR");
+		masterPage.getBuscaItem().buscaItem("Amortecedor");
+		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getBuscaItem().buscaItem("Vela");
+		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getBuscaItem().buscaItem("oleo");
+		masterPage.getAdicionaItemPage().inserirItem();
 	}
-
 }

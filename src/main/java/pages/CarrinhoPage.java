@@ -36,6 +36,11 @@ public class CarrinhoPage {
 		navegador.findElement(By.xpath("//p[contains(text(),'Finalizar Venda')]")).click();
 	}
 	
+	public void condicaoPagamento() {
+		
+		navegador.findElement(By.xpath("//p[contains(text(),'Condição de Pagamento')]")).click();
+	}
+	
 	
 
 }

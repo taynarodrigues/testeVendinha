@@ -26,5 +26,11 @@ public class PagamentoPage {
 		sleep();
 		navegador.findElement(By.xpath("//a[contains(text(),'Ir para caixa')]")).click();
 	}
+	
+	public void cancelarPagamento() {
+		
+		sleep();
+		navegador.findElement(By.xpath("//a[contains(text(),'Cancelar')]")).click();
+	}
 
 }

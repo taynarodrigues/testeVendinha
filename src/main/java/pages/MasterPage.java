@@ -9,6 +9,8 @@ public class MasterPage {
 	private AdicionaItemPage adicionaItem;
 	private CarrinhoPage carrinho;
 	private PagamentoPage pagamento;
+	private PagamentoCartaoCreditoPage pagamentoCredito;
+	private AdiministradoraCartaoCreditoPage adiministradoraCartao;
 
 	public MasterPage(WebDriver navegador) {
 
@@ -17,6 +19,8 @@ public class MasterPage {
 		this.adicionaItem = new AdicionaItemPage(navegador);
 		this.carrinho = new CarrinhoPage(navegador);
 		this.pagamento = new PagamentoPage(navegador);
+		this.pagamentoCredito = new PagamentoCartaoCreditoPage(navegador);
+		this.adiministradoraCartao = new AdiministradoraCartaoCreditoPage(navegador);
 		
 	}
 
@@ -38,5 +42,13 @@ public class MasterPage {
 	
 	public PagamentoPage getPagamentoPage() {
 		return pagamento;
+	}
+	
+	public PagamentoCartaoCreditoPage getPagamentoCartaoCreditoPage() {
+		return pagamentoCredito;
+	}
+	
+	public AdiministradoraCartaoCreditoPage getAdiministradoraCartaoCreditoPage() {
+		return adiministradoraCartao;
 	}
 }

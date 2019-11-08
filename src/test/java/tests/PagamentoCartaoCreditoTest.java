@@ -41,14 +41,14 @@ public class PagamentoCartaoCreditoTest {
 		masterPage.getCarrinhoPage().condicaoPagamento();
 		masterPage.getPagamentoCartaoCreditoPage().pagamentoCredito("3");
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao();
+		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao("Cielo");
 		masterPage.getPagamentoPage().cancelarPagamento();
 		
 		masterPage.getBuscaItem().buscaItem("044842");
 		masterPage.getAdicionaItemPage().inserirItemComQuantidade("3");
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao();
+		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao("Redecard");
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 }

@@ -21,12 +21,12 @@ public class AdiministradoraCartaoCreditoPage {
 		}
 	}
 	
-	public void adiministradoraCartao() {
+	public void adiministradoraCartao(String adm) {
 		
 		sleep();
 		navegador.findElement(By.id("administradora")).click();
 		navegador.findElement(By.xpath(
-				"//md-option[contains(.,' \n" + "                          Cielo\n" + "                           ')]"))
+				"//md-option[contains(.,'"+adm+"')]"))
 				.click();
 	}
 }

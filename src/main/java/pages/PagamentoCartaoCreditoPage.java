@@ -17,7 +17,7 @@ public class PagamentoCartaoCreditoPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -29,11 +29,9 @@ public class PagamentoCartaoCreditoPage {
 		navegador.findElement(By.id("condAVista")).click();
 
 		sleep();
-		WebElement cartao = navegador
-				.findElement(By.xpath("//md-option[contains(.,' \n" + "                      Cartao   ')]"));
+		WebElement cartao = navegador.findElement(By.xpath("//md-option[contains(.,'Cartao')]"));
 		Actions act = new Actions(navegador);
 		act.moveToElement(cartao).click().perform();
-
 
 		navegador.findElement(By.id("condicoes-C" + qtdVezes + "")).click();
 

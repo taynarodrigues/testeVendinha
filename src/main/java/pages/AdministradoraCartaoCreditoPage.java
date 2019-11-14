@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AdiministradoraCartaoCreditoPage {
+public class AdministradoraCartaoCreditoPage {
 	
 	private WebDriver navegador;
 	
-	public AdiministradoraCartaoCreditoPage(WebDriver navegador) {
+	public AdministradoraCartaoCreditoPage(WebDriver navegador) {
 		
 		this.navegador = navegador;
 	}
@@ -21,9 +21,8 @@ public class AdiministradoraCartaoCreditoPage {
 		}
 	}
 	
-	public void adiministradoraCartao(String adm) {
+	public void administradoraCartao(String adm) {
 		
-		sleep();
 		navegador.findElement(By.id("administradora")).click();
 		navegador.findElement(By.xpath(
 				"//md-option[contains(.,'"+adm+"')]"))

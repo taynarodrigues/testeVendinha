@@ -10,7 +10,11 @@ public class MasterPage {
 	private CarrinhoPage carrinho;
 	private PagamentoPage pagamento;
 	private PagamentoCartaoCreditoPage pagamentoCredito;
-	private AdiministradoraCartaoCreditoPage adiministradoraCartao;
+	private AdministradoraCartaoCreditoPage administradoraCartao;
+	private DescontoPedidoPage descontoPedido;
+	private AcrescimoPedidoPage acrescimoPedido;
+	private FretePedidoPage fretePedido;
+	private TermoDeGarantiaPage termoGarantia;
 
 	public MasterPage(WebDriver navegador) {
 
@@ -20,7 +24,11 @@ public class MasterPage {
 		this.carrinho = new CarrinhoPage(navegador);
 		this.pagamento = new PagamentoPage(navegador);
 		this.pagamentoCredito = new PagamentoCartaoCreditoPage(navegador);
-		this.adiministradoraCartao = new AdiministradoraCartaoCreditoPage(navegador);
+		this.administradoraCartao = new AdministradoraCartaoCreditoPage(navegador);
+		this.descontoPedido = new DescontoPedidoPage(navegador);
+		this.acrescimoPedido = new AcrescimoPedidoPage(navegador);
+		this.fretePedido = new FretePedidoPage(navegador);
+		this.termoGarantia = new TermoDeGarantiaPage(navegador);
 		
 	}
 
@@ -48,7 +56,23 @@ public class MasterPage {
 		return pagamentoCredito;
 	}
 	
-	public AdiministradoraCartaoCreditoPage getAdiministradoraCartaoCreditoPage() {
-		return adiministradoraCartao;
+	public AdministradoraCartaoCreditoPage getAdministradoraCartaoCreditoPage() {
+		return administradoraCartao;
+	}
+	
+	public DescontoPedidoPage getDescontoPedidoPage() {
+		return descontoPedido;
+	}
+	
+	public AcrescimoPedidoPage getAcrescimoPedidoPage() {
+		return acrescimoPedido;
+	}
+	
+	public FretePedidoPage getFretePedidoPage() {
+		return fretePedido;
+	}
+	
+	public TermoDeGarantiaPage getTermoDeGarantiaPage() {
+		return termoGarantia;
 	}
 }

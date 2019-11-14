@@ -16,14 +16,14 @@ public class PagamentoCartaoCreditoTest {
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.89");
+		navegador = Web.createChrome("http://192.168.151.17");
 		
 		masterPage = new MasterPage(navegador);
 		
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -41,14 +41,14 @@ public class PagamentoCartaoCreditoTest {
 		masterPage.getCarrinhoPage().condicaoPagamento();
 		masterPage.getPagamentoCartaoCreditoPage().pagamentoCredito("3");
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao("Cielo");
+		masterPage.getAdministradoraCartaoCreditoPage().administradoraCartao("Cielo");
 		masterPage.getPagamentoPage().cancelarPagamento();
 		
 		masterPage.getBuscaItem().buscaItem("044842");
 		masterPage.getAdicionaItemPage().inserirItemComQuantidade("3");
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdiministradoraCartaoCreditoPage().adiministradoraCartao("Redecard");
+		masterPage.getAdministradoraCartaoCreditoPage().administradoraCartao("Redecard");
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 }

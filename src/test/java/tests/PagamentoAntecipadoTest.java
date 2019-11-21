@@ -1,7 +1,5 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import pages.MasterPage;
 import suporte.Web;
 
-public class CarrinhoTest {
-	
+public class PagamentoAntecipadoTest {
+
 	private WebDriver navegador;
 	private MasterPage masterPage;
 	
@@ -25,29 +23,24 @@ public class CarrinhoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
 	}
 	
 	@Test
-	public void deveIrParaCarrinho() throws InterruptedException {
+	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("044840");
+		masterPage.getBuscaItem().buscaItem("GP30126");
 		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("NK0405");
+		masterPage.getBuscaItem().buscaItem("GBL1119");
 		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("0441487");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("SE30829");
-		masterPage.getAdicionaItemPage().inserirItemComQuantidade("5");
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getCarrinhoPage().condicaoPagamento();
 		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-				
+		
 	}
-
 }

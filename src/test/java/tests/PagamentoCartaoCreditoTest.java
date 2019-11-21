@@ -16,7 +16,7 @@ public class PagamentoCartaoCreditoTest {
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		
 		masterPage = new MasterPage(navegador);
 		

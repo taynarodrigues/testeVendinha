@@ -15,6 +15,8 @@ public class MasterPage {
 	private AcrescimoPedidoPage acrescimoPedido;
 	private FretePedidoPage fretePedido;
 	private TermoDeGarantiaPage termoGarantia;
+	private PagamentoAntecipadoPage pagamentoAntecipado;
+	private BuscarClientePage buscarCliente;
 
 	public MasterPage(WebDriver navegador) {
 
@@ -29,6 +31,8 @@ public class MasterPage {
 		this.acrescimoPedido = new AcrescimoPedidoPage(navegador);
 		this.fretePedido = new FretePedidoPage(navegador);
 		this.termoGarantia = new TermoDeGarantiaPage(navegador);
+		this.pagamentoAntecipado = new PagamentoAntecipadoPage(navegador);
+		this.buscarCliente = new BuscarClientePage(navegador);
 		
 	}
 
@@ -74,5 +78,13 @@ public class MasterPage {
 	
 	public TermoDeGarantiaPage getTermoDeGarantiaPage() {
 		return termoGarantia;
+	}
+	
+	public PagamentoAntecipadoPage getPagamentoAntecipadoPage() {
+		return pagamentoAntecipado;
+	}
+	
+	public BuscarClientePage getbBuscarClientePage() {
+		return buscarCliente;
 	}
 }

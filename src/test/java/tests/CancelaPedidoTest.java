@@ -8,36 +8,33 @@ import org.openqa.selenium.WebDriver;
 import pages.MasterPage;
 import suporte.Web;
 
-public class BuscarItemTest {
+public class CancelaPedidoTest {
 	
 	private WebDriver navegador;
 	private MasterPage masterPage;
-	
+
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.89");
-		
+		navegador = Web.createChrome("http://192.168.151.17");
 		masterPage = new MasterPage(navegador);
-		
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
 	@After
 	public void tearDown() {
-		
 		navegador.quit();
 	}
 	
 	@Test
-	public void deveBuscarItem() throws InterruptedException {
+	public void deveExcluirPedido() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("AMORTECEDOR");
+		masterPage.getBuscaItem().buscaItem("7741");
+		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getBuscaItem().buscaItem("7743");
 		masterPage.getAdicionaItemPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
-		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getCancelaPedidoPage().excluirCarrinho();
+		
 	}
-
 }

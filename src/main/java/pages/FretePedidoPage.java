@@ -26,6 +26,7 @@ public class FretePedidoPage {
 	
 	public void inserirFretePedido(String valorFrete) {
 		
+		sleep();
 		navegador.findElement(By.xpath("//a[@id='btnDropdownTotal']")).click();
 		
 		sleep();

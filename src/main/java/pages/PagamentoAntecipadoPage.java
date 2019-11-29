@@ -25,7 +25,6 @@ public class PagamentoAntecipadoPage {
 		
 		sleep();
 		navegador.findElement(By.xpath("//md-select[@id='condAVista']")).click();
-		
 
 		sleep();
 		WebElement antecipado = navegador.findElement(By.xpath("//md-option[contains(.,'Antecipado')]"));

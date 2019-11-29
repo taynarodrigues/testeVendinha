@@ -23,7 +23,7 @@ public class AdicionaItemTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();

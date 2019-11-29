@@ -17,6 +17,13 @@ public class MasterPage {
 	private TermoDeGarantiaPage termoGarantia;
 	private PagamentoAntecipadoPage pagamentoAntecipado;
 	private BuscarClientePage buscarCliente;
+	private AlterarQuantidadePage aumentaQuantidade;
+	private CancelaPedidoPage excluiPedido;
+	private PendenciaPage pendencia;
+	private PaginacaoCarrinhoPage paginacaoCarrinho;
+	private CompraDoacaoDeSucataPage compraSucata;
+	private PedidosEmAbertoPage pedidosEmAberto;
+
 
 	public MasterPage(WebDriver navegador) {
 
@@ -33,6 +40,13 @@ public class MasterPage {
 		this.termoGarantia = new TermoDeGarantiaPage(navegador);
 		this.pagamentoAntecipado = new PagamentoAntecipadoPage(navegador);
 		this.buscarCliente = new BuscarClientePage(navegador);
+		this.aumentaQuantidade = new AlterarQuantidadePage(navegador);
+		this.excluiPedido = new CancelaPedidoPage(navegador);
+		this.pendencia = new PendenciaPage(navegador);
+		this.paginacaoCarrinho = new PaginacaoCarrinhoPage(navegador);
+		this.compraSucata = new CompraDoacaoDeSucataPage(navegador);
+		this.pedidosEmAberto = new PedidosEmAbertoPage(navegador);
+		
 		
 	}
 
@@ -87,4 +101,29 @@ public class MasterPage {
 	public BuscarClientePage getbBuscarClientePage() {
 		return buscarCliente;
 	}
+	
+	public AlterarQuantidadePage getAlterarQuantidadePage() {
+		return aumentaQuantidade;
+	}
+	
+	public CancelaPedidoPage getCancelaPedidoPage() {
+		return excluiPedido;
+	}
+	
+	public PendenciaPage getPendenciaPage() {
+		return pendencia;
+	}
+	
+	public PaginacaoCarrinhoPage getPaginacaoCarrinhoPage() {
+		return paginacaoCarrinho;
+	}
+	
+	public CompraDoacaoDeSucataPage getCompraDoacaoDeSucataPage() {
+		return compraSucata;
+	}
+	
+	public PedidosEmAbertoPage getPedidosEmAbertoPage() {
+		return pedidosEmAberto;
+	}
+	
 }

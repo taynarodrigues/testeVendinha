@@ -49,4 +49,10 @@ public class LoginPage {
 		Thread.sleep(1000);
 		navegador.findElement(By.id("navbar_lock")).click();
 	}
+	
+	public void validaTelaLogin() {
+		
+		navegador.findElement(By.id("appLogin"));
+		
+	}
 }

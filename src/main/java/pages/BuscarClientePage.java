@@ -36,5 +36,10 @@ public class BuscarClientePage {
 		sleep();
 		navegador.findElement(By.xpath("//i[@class='custom-icon material-icons padding-i'][contains(text(),'done')]")).click();
 	}
+	
+	public void removerCliente() {
+		
+		navegador.findElement(By.xpath("/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/i[1]")).click();
+	}
 
 }

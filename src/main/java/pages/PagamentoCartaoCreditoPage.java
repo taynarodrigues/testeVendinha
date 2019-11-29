@@ -37,5 +37,7 @@ public class PagamentoCartaoCreditoPage {
 
 		navegador.findElement(By.id("done")).click();
 	}
+	
+	
 
 }

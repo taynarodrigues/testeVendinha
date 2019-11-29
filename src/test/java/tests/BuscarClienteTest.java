@@ -22,7 +22,7 @@ public class BuscarClienteTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -31,16 +31,20 @@ public class BuscarClienteTest {
 	@Test
 	public void deveBuscarClienteCpfCnpjNome() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
+		masterPage.getBuscaItem().buscaItem("7741");
 		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
+		masterPage.getBuscaItem().buscaItem("7743");
 		masterPage.getAdicionaItemPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getAlterarQuantidadePage().aumentaQuantidade(5, "1");
+		masterPage.getbBuscarClientePage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
+		masterPage.getBuscaItem().buscaItem("562");
+		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getbBuscarClientePage().removerCliente();
 		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getCarrinhoPage().condicaoPagamento();
 		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		
-		
 	}
 }

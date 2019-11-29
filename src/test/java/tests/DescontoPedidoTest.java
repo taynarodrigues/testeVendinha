@@ -23,7 +23,7 @@ public class DescontoPedidoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -37,6 +37,7 @@ public class DescontoPedidoTest {
 		masterPage.getBuscaItem().buscaItem("GBL1119");
 		masterPage.getAdicionaItemPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getbBuscarClientePage().buscarCliente("FILIPE CELA");
 		masterPage.getDescontoPedidoPage().botaoDescontoPedido("1923");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();

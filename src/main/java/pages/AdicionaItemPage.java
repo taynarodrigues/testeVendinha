@@ -26,7 +26,15 @@ public class AdicionaItemPage {
 
 	public void inserirItem() {
 
+		sleep();
 		navegador.findElement(By.xpath("//i[@class='material-icons shopping-cart-icon']")).click();
+	}
+	
+	
+	public void inserirItemPaginacao(int posicao) {
+		
+		sleep();
+		navegador.findElement(By.xpath("/html[1]/body[1]/main[1]/div[2]/div[1]/search-container[1]/div[1]/md-sidenav-container[1]/div[4]/div[2]/div[1]/div[1]/found[1]/div[1]/div[2]/carousel[1]/div[1]/div[1]/div[1]/div[ "+ posicao +" ]/div[1]/card-found[1]/div[1]/div[4]/div[3]/div[2]/div[1]/i[1]")).click();
 	}
 
 	public void inserirItemComQuantidade(String quant) {

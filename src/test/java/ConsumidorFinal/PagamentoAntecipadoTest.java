@@ -2,6 +2,7 @@ package ConsumidorFinal;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -23,7 +24,7 @@ public class PagamentoAntecipadoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -31,6 +32,23 @@ public class PagamentoAntecipadoTest {
 	
 	@Test
 	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
+		
+		masterPage.getBuscaItem().buscaItem("562");
+		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
+		masterPage.getCarrinhoPage().condicaoPagamento();
+		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getTransportePage().abaTransporte("TRANSPORTE", "1", "2000", "1000", "fiat", "F");
+		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getTransportePage().mensagemTransporte();
+		masterPage.getPagamentoPage().irParaCaixa();
+	}
+	
+	@Ignore
+	@Test
+	public void naoDeveAplicarPagamentoAntecipado() throws InterruptedException {
 		
 		masterPage.getBuscaItem().buscaItem("GP30126");
 		masterPage.getAdicionaItemPage().inserirItem();
@@ -41,6 +59,6 @@ public class PagamentoAntecipadoTest {
 		masterPage.getCarrinhoPage().condicaoPagamento();
 		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		
+		masterPage.getPagamentoAntecipadoPage().mensagemSaldoInsufuciente();
 	}
 }

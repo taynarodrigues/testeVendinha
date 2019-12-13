@@ -32,12 +32,16 @@ public class FretePedidoTest {
 	@Test
 	public void deveAplicarFretePedido() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("SERGIO CAMPOS");
-		masterPage.getFretePedidoPage().inserirFretePedido("599");
+		masterPage.getCarrinhoPage().buscarCliente("SERGIO CAMPOS");
+		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
+		masterPage.getDescontoAcrescimoPage().adicionaFretePedido("599");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();
+		
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 	}

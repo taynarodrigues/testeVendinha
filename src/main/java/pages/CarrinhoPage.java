@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CarrinhoPage {
 	private WebDriver navegador;
@@ -16,7 +18,7 @@ public class CarrinhoPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,9 +36,9 @@ public class CarrinhoPage {
 		navegador.findElement(By.xpath("//p[contains(text(),'Finalizar Venda')]")).click();
 	}
 
-	public void salvarOrcamento() {
-		sleep();
+	public void salvarOrcamento() {	
 		navegador.findElement(By.xpath("//p[contains(text(),'Salvar orçamento')]")).click();
+		sleep();
 
 	}
 
@@ -60,6 +62,9 @@ public class CarrinhoPage {
 		sleep();
 		navegador.findElement(By.xpath("//i[@class='custom-icon material-icons padding-i'][contains(text(),'done')]"))
 				.click();
+		
+		WebDriverWait e = new WebDriverWait(navegador, 10);
+		e.until(ExpectedConditions.invisibilityOfElementLocated(By.className("general-loading")));
 	}
 
 	public void removerCliente() {

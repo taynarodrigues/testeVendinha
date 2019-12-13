@@ -20,7 +20,7 @@ public class AlterarQuantidadeTest {
 		masterPage = new MasterPage(navegador);
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -28,17 +28,19 @@ public class AlterarQuantidadeTest {
 
 	@Test
 	public void deveAlterarQuantidade() throws InterruptedException {
-		
-		masterPage.getBuscaItem().buscaItem("562");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("7743");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("7741");
-		masterPage.getAdicionaItemPage().inserirItemComQuantidade("10");
+	
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("4");
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7743");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(10, "1");
-		masterPage.getAlterarQuantidadePage().diminuiQuantidade(5, "2");
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(3, "3");
+		masterPage.getCarrinhoPage().aumentaQuantidade(4, "1");
+		masterPage.getCarrinhoPage().diminuiQuantidade(2, "2");
+		masterPage.getCarrinhoPage().aumentaQuantidade(4, "3");
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();
 		
 		
 	}

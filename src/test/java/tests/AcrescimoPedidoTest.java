@@ -23,7 +23,7 @@ public class AcrescimoPedidoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -32,11 +32,12 @@ public class AcrescimoPedidoTest {
 	@Test
 	public void deveAplicarAcrescimoPedido() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getAcrescimoPedidoPage().abaAcrescimoPedido("1562");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("1562");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 		

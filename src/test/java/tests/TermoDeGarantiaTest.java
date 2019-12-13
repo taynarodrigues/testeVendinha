@@ -32,15 +32,13 @@ public class TermoDeGarantiaTest {
 	@Test
 	public void deveApresentarTermoGarantiaPage() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getTermoDeGarantiaPage().botaoTermoDeGarantia();
-		masterPage.getBuscaItem().buscaItem("7743");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("7741");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getTermoDeGarantiaPage().botaoTermoDeGarantia();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getTermoDeGarantiaPage().botaoTermoDeGarantia();

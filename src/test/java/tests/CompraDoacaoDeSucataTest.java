@@ -30,18 +30,23 @@ public class CompraDoacaoDeSucataTest {
 	@Test
 	public void compraDoacaoSucata() throws InterruptedException {
 
+		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaCompraSucata();
 		masterPage.getCompraSucataPage().adicionarSucata();
 		masterPage.getCompraSucataPage().preencherCampoSucata("50", "0", "6000");
+		masterPage.getCompraSucataPage().adicionarSucata();
 		masterPage.getCompraSucataPage().preencherCampoSucata("105", "1", "6000");
+		masterPage.getCompraSucataPage().adicionarSucata();
 		masterPage.getCompraSucataPage().preencherCampoSucata("60", "2", "5000");
 		masterPage.getCompraSucataPage().finalizarCompraSucata();
 		masterPage.getLoginPage().lookOpen();
 	}
 
+	@Ignore
 	@Test
 	public void sucataDoacao() throws InterruptedException {
 
+		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaCompraSucata();
 		masterPage.getCompraSucataPage().adicionarSucata();
 		masterPage.getCompraSucataPage().preencherCampoSucata("50", "0", "6000");

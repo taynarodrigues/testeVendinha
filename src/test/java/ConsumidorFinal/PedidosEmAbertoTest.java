@@ -16,9 +16,9 @@ public class PedidosEmAbertoTest {
 
 	@Before
 	public void setUp() {
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
-		masterPage.getLoginPage().fazLogin("v299", "v299");
+		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 
 	@After
@@ -30,45 +30,47 @@ public class PedidosEmAbertoTest {
 	@Test
 	public void deveVerificarOsPedidosEmAberto() {
 
-		masterPage.getMeuPerfilPage();
+		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaPedidosEmAbertos();
 		masterPage.getMeuPerfilPage().finalizarPedidoEmAberto("1");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void deveAddItensVerificarValorSalvarOrcamentoFinalizarVenda() throws InterruptedException {
 
-		masterPage.getBuscaItem().buscaItem("pneu");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("amortecedor");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().salvarOrcamento();
-		masterPage.getMeuPerfilPage();
+		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaPedidosEmAbertos();
 		masterPage.getMeuPerfilPage().finalizarPedidoEmAberto("1");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
+		
 	}
 
 	@Ignore
 	@Test
 	public void deveAddItensAddDescontoPedidoVerificarValorSalvarOrcamentoFinalizarVenda() throws InterruptedException {
 
-		masterPage.getBuscaItem().buscaItem("pneu");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("amort");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		masterPage.getCarrinhoPage().irParaCarrinho();
-
-		masterPage.getDescontoPedidoPage().botaoDescontoPedido("1400");
+		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
+		masterPage.getDescontoAcrescimoPage().adicionarDescontoPedido("1400");
+		masterPage.getDescontoAcrescimoPage().aplicarDesconto();
 		masterPage.getCarrinhoPage().salvarOrcamento();
-		masterPage.getMeuPerfilPage();
+		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaPedidosEmAbertos();
 		masterPage.getMeuPerfilPage().finalizarPedidoEmAberto("1");
 		masterPage.getCarrinhoPage().finalizaVenda();

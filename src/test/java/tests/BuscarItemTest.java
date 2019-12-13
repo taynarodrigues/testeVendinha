@@ -32,10 +32,10 @@ public class BuscarItemTest {
 	@Test
 	public void deveBuscarItem() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("AMORTECEDOR");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("AMORTECEDOR");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
+		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 	}

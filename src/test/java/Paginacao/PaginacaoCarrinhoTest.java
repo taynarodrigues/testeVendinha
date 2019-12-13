@@ -30,29 +30,29 @@ public class PaginacaoCarrinhoTest {
 	@Test
 	public void deveFinalizarVendaPaginacaoCarrinho() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("Amortecedor");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("Amortecedor");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getBuscaItem().buscaItem("Pneu");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("Pneu");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getBuscaItem().buscaItem("Vela");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("Vela");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getBuscaItem().buscaItem("rolamento");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("rolamento");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 	
 		
 		masterPage.getCarrinhoPage().irParaCarrinho();
@@ -64,19 +64,18 @@ public class PaginacaoCarrinhoTest {
 	
 	@Test
 	public void deveFinalizarVendaCarrinhoAddQuantidade() throws InterruptedException {
-		masterPage.getBuscaItem().buscaItem("vela");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(2);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().buscaItem("vela");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().inserirItemPaginacao(2);
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getBuscaItem().buscaItem("amortecedor");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(1);
+		masterPage.getCatalogoPage().buscaItem("amortecedor");
+		masterPage.getCatalogoPage().inserirItemPaginacao(1);
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(5, "1");
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(10, "4");
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(6, "5");
+		masterPage.getCarrinhoPage().aumentaQuantidade(6, "4");
+		masterPage.getCarrinhoPage().aumentaQuantidade(6, "5");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 		

@@ -24,10 +24,12 @@ public class DescontosEAcrescimosPage {
 	}
 	
 	public void botaoDescontoPedido() {
+		sleep();
 		navegador.findElement(By.xpath("//a[@id='btnDropdownTotal']")).click();
 	}
 
 	public void adicionarDescontoPedido(String valorDesconto) {
+		sleep();
 		navegador.findElement(By.xpath("//input[@id='valorDescontoTotal']")).sendKeys(valorDesconto);
 	}
 

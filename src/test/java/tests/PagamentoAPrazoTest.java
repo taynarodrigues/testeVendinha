@@ -32,32 +32,31 @@ public class PagamentoAPrazoTest {
 	@Test
 	public void deveFinalizarVendaAPrazoAutorizacaoGerente() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("7741");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("JOSE CARLOS DE SENA FERREIRA JUNIOR");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAPrazoPage().pagamentoAPrazo("1", "7");
+		masterPage.getCarrinhoPage().buscarCliente("JOSE CARLOS DE SENA FERREIRA JUNIOR");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAPrazo("1", "7");
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getPagamentoAPrazoPage().AutorizacaoGerente("500", "123");
-		assertEquals("Pagamento Autorizado", masterPage.getPagamentoAPrazoPage().mensagem());
+		masterPage.getPagamentoPage().AutorizacaoGerente("500", "123");
+		assertEquals("Pagamento Autorizado", masterPage.getValidaPage().validaMensagem());
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void naoDeveFinalizarVendaAPrazoClienteBloqueado() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("7743");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7743");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("63801523268");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAPrazoPage().pagamentoAPrazo("5", "1");
+		masterPage.getCarrinhoPage().buscarCliente("63801523268");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAPrazo("5", "1");
 		masterPage.getCarrinhoPage().finalizaVenda();
-		assertEquals("Cliente/Grupo Bloqueado, Verifique com o gerente", masterPage.getPagamentoAPrazoPage().mensagem());
-		masterPage.getPagamentoPage().irParaCaixa();
-		
+		assertEquals("Cliente/Grupo Bloqueado, Verifique com o gerente", masterPage.getValidaPage().validaMensagem());
+		masterPage.getPagamentoPage().irParaCaixa();	
 	}
 }
 

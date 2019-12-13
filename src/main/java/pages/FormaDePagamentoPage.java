@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FormaDePagamentoPage {
 	private WebDriver navegador;
@@ -25,7 +27,9 @@ public class FormaDePagamentoPage {
 	}
 
 	public void condicaoPagamento() {
-		sleep();
+		WebDriverWait e = new WebDriverWait(navegador, 10);
+		e.until(ExpectedConditions.invisibilityOfElementLocated(By.className("general-loading")));
+		
 		navegador.findElement(By.xpath("//p[contains(text(),'Condição de Pagamento')]")).click();
 	}
 

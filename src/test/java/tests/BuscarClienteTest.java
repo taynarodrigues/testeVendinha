@@ -31,20 +31,19 @@ public class BuscarClienteTest {
 	@Test
 	public void deveBuscarClienteCpfCnpjNome() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("7741");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("7743");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7743");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getAlterarQuantidadePage().aumentaQuantidade(5, "1");
-		masterPage.getbBuscarClientePage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
-		masterPage.getBuscaItem().buscaItem("562");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
+		masterPage.getCarrinhoPage().removerCliente();
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().removerCliente();
-		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
+		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
 	}
 }

@@ -1,5 +1,7 @@
 package ConsumidorFinal;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -24,41 +26,41 @@ public class PagamentoAntecipadoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
 	}
-	
+	@Ignore
 	@Test
 	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("562");
-		masterPage.getAdicionaItemPage().inserirItemPaginacao(3);
+	
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItemPaginacao(3);
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
+		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getTransportePage().abaTransporte("TRANSPORTE", "1", "2000", "1000", "fiat", "F");
 		masterPage.getPagamentoPage().irParaCaixa();
-		masterPage.getTransportePage().mensagemTransporte();
-		masterPage.getPagamentoPage().irParaCaixa();
+	
 	}
 	
-	@Ignore
+//	@Ignore
 	@Test
 	public void naoDeveAplicarPagamentoAntecipado() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
+		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getPagamentoAntecipadoPage().mensagemSaldoInsufuciente();
+		assertEquals("Saldo antecipado insuficiente", masterPage.getValidaPage().validaMensagem());
 	}
 }

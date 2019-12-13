@@ -25,7 +25,7 @@ public class CarrinhoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -34,19 +34,21 @@ public class CarrinhoTest {
 	@Test
 	public void deveIrParaCarrinho() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("044840");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("NK0405");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("0441487");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("SE30829");
-		masterPage.getAdicionaItemPage().inserirItemComQuantidade("5");
+		masterPage.getCatalogoPage().buscaItem("SE30829");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("5");
+		masterPage.getCatalogoPage().buscaItem("044840");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("NK0405");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("0441487");
+		masterPage.getCatalogoPage().inserirItem();
+		
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoAntecipadoPage().pagamentoAntecipado();
+		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();
 				
 	}
 

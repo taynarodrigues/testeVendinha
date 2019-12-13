@@ -29,12 +29,12 @@ public class CancelaPedidoTest {
 	@Test
 	public void deveExcluirPedido() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("7741");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("7743");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("7743");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getCancelaPedidoPage().excluirCarrinho();
+		masterPage.getCarrinhoPage().excluirCarrinho();
 		
 	}
 }

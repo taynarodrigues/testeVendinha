@@ -32,23 +32,21 @@ public class PagamentoCartaoCreditoTest {
 	@Test
 	public void deveFinalizarVendaCartaoCredito3x() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("044840");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("NK0405");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("0441487");
+		masterPage.getCatalogoPage().buscaItem("044840");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("NK0405");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getCarrinhoPage().condicaoPagamento();
-		masterPage.getPagamentoCartaoCreditoPage().pagamentoCredito("3");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoCredito("3");
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdministradoraCartaoCreditoPage().administradoraCartao("Cielo");
+		masterPage.getPagamentoPage().administradoraCartao("Cielo");
 		masterPage.getPagamentoPage().cancelarPagamento();
-		
-		masterPage.getBuscaItem().buscaItem("044842");
-		masterPage.getAdicionaItemPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("044842");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getAdministradoraCartaoCreditoPage().administradoraCartao("Redecard");
+		masterPage.getPagamentoPage().administradoraCartao("Redecard");
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 }

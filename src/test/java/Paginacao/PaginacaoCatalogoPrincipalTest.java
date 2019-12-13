@@ -28,17 +28,17 @@ public class PaginacaoCatalogoPrincipalTest {
 		navegador.quit();
 	}
 	
-	@Ignore
+//	@Ignore
 	@Test
 	public void deveFazerPaginacaoPrincipalTags() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("amortecedor");
-		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(4);
-		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("3");
-		masterPage.getBuscaItem().buscaItem("vela");
-		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(6);
-		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalLeft(4);
-		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("3");
+		masterPage.getCatalogoPage().buscaItem("amortecedor");
+		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(3);
+//		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("1");
+		masterPage.getCatalogoPage().buscaItem("Vela");
+		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(2);
+		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalLeft(1);
+//		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("3");
 		
 		masterPage.getLoginPage().lookOpen();
 	}
@@ -47,9 +47,9 @@ public class PaginacaoCatalogoPrincipalTest {
 	@Test
 	public void deveFazerPaginacaoRecomendados() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("amortecedor");
-		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(6);
-		masterPage.getPaginacaoCarrinhoPage().paginacaoRecomendadosRight(4);
+		masterPage.getCatalogoPage().buscaItem("amortecedor");
+		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(5);
+		masterPage.getPaginacaoCarrinhoPage().paginacaoRecomendadosRight(3);
 		
 		masterPage.getLoginPage().lookOpen();
 	}

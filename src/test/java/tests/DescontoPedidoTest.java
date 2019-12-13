@@ -23,7 +23,7 @@ public class DescontoPedidoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -32,13 +32,16 @@ public class DescontoPedidoTest {
 	@Test
 	public void deveAplicarDescontoPedido() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("GP30126");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("GBL1119");
-		masterPage.getAdicionaItemPage().inserirItem();
+		
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-		masterPage.getbBuscarClientePage().buscarCliente("FILIPE CELA");
-		masterPage.getDescontoPedidoPage().botaoDescontoPedido("1923");
+		masterPage.getCarrinhoPage().buscarCliente("FILIPE CELA");
+		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
+		masterPage.getDescontoAcrescimoPage().adicionarDescontoPedido("1923");
+		masterPage.getDescontoAcrescimoPage().aplicarDesconto();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 	}

@@ -23,7 +23,7 @@ public class AdicionaItemTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -32,11 +32,12 @@ public class AdicionaItemTest {
 	@Test
 	public void deveInserirItem() throws InterruptedException {
 		
-		masterPage.getBuscaItem().buscaItem("Amortecedor");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("Vela");
-		masterPage.getAdicionaItemPage().inserirItem();
-		masterPage.getBuscaItem().buscaItem("oleo");
-		masterPage.getAdicionaItemPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("Amortecedor");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("Vela");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();
 	}
 }

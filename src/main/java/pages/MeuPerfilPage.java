@@ -67,4 +67,11 @@ public class MeuPerfilPage {
 				"/html[1]/body[1]/main[1]/div[2]/div[1]/sales-manager[1]/div[1]/header[1]/div[1]/div[1]/md-tab-group[1]/md-tab-header[1]/div[2]/div[1]/div[1]/div[3]"));
 		act.moveToElement(compraSucata).click().perform();
 	}
+
+	public void abaReimpressao() {
+		navegador.findElement(By.xpath(
+				"/html[1]/body[1]/main[1]/div[2]/div[1]/sales-manager[1]/div[1]/header[1]/div[1]/div[1]/md-tab-group[1]/md-tab-header[1]/div[2]/div[1]/div[1]/div[4]"))
+				.click();
+	}
+	
 }

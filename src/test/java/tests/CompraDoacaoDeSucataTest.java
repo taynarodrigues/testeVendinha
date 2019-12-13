@@ -21,12 +21,12 @@ public class CompraDoacaoDeSucataTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 
-	@After
+//	@After
 	public void tearDown() {
 		navegador.quit();
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void compraDoacaoSucata() throws InterruptedException {
 

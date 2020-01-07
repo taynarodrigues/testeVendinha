@@ -16,7 +16,7 @@ public class AlterarQuantidadeTest {
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}

@@ -16,14 +16,14 @@ public class AcrescimoPedidoTest {
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		
 		masterPage = new MasterPage(navegador);
 		
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -36,6 +36,7 @@ public class AcrescimoPedidoTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("GBL1119");
 		masterPage.getCatalogoPage().inserirItem();
+		
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("1562");
 		masterPage.getCarrinhoPage().finalizaVenda();

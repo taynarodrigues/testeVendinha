@@ -21,7 +21,7 @@ public class PedidosEmAbertoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 
-	@After
+//	@After
 	public void tearDown() {
 		navegador.quit();
 	}
@@ -37,7 +37,7 @@ public class PedidosEmAbertoTest {
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void deveAddItensVerificarValorSalvarOrcamentoFinalizarVenda() throws InterruptedException {
 

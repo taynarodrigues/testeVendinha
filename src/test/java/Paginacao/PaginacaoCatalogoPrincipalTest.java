@@ -17,28 +17,26 @@ public class PaginacaoCatalogoPrincipalTest {
 	@Before
 	public void setUp() {
 		
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-	@After
+//	@After
 	public void tearDown() {
 		
 		navegador.quit();
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void deveFazerPaginacaoPrincipalTags() throws InterruptedException {
 		
 		masterPage.getCatalogoPage().buscaItem("amortecedor");
 		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(3);
-//		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("1");
 		masterPage.getCatalogoPage().buscaItem("Vela");
 		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(2);
 		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalLeft(1);
-//		masterPage.getPaginacaoCarrinhoPage().paginacaoTags("3");
 		
 		masterPage.getLoginPage().lookOpen();
 	}
@@ -48,7 +46,7 @@ public class PaginacaoCatalogoPrincipalTest {
 	public void deveFazerPaginacaoRecomendados() throws InterruptedException {
 		
 		masterPage.getCatalogoPage().buscaItem("amortecedor");
-		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(5);
+		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(3);
 		masterPage.getPaginacaoCarrinhoPage().paginacaoRecomendadosRight(3);
 		
 		masterPage.getLoginPage().lookOpen();

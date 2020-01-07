@@ -16,7 +16,7 @@ public class PaginacaoCarrinhoTest {
 	
 	@Before
 	public void setUp() {
-		navegador = Web.createChrome("http://192.168.151.17");
+		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
@@ -37,10 +37,7 @@ public class PaginacaoCarrinhoTest {
 		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
 		masterPage.getCatalogoPage().buscaItem("Pneu");
-		masterPage.getCatalogoPage().inserirItemPaginacao(1);
-		masterPage.getCatalogoPage().inserirItemPaginacao(2);
-		masterPage.getCatalogoPage().inserirItemPaginacao(3);
-		masterPage.getCatalogoPage().inserirItemPaginacao(4);
+		masterPage.getCatalogoPage().inserirItem();
 		
 		masterPage.getCatalogoPage().buscaItem("Vela");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
@@ -62,6 +59,7 @@ public class PaginacaoCarrinhoTest {
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
 	
+	@Ignore
 	@Test
 	public void deveFinalizarVendaCarrinhoAddQuantidade() throws InterruptedException {
 		masterPage.getCatalogoPage().buscaItem("vela");

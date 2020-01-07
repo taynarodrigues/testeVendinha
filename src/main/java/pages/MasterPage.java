@@ -16,6 +16,7 @@ public class MasterPage {
 	private CatalogoPage catalogoPage;
 	private ValidaPage validaPage;
 	private FormaDePagamentoPage formaPagamentoPage;
+	private VendaPerdidaPage vendaPerdida;
 
 	public MasterPage(WebDriver navegador) {
 
@@ -31,6 +32,7 @@ public class MasterPage {
 		this.validaPage = new ValidaPage(navegador);
 		this.carrinhoPage = new CarrinhoPage(navegador);
 		this.formaPagamentoPage = new FormaDePagamentoPage(navegador);
+		this.vendaPerdida = new VendaPerdidaPage(navegador);
 
 	}
 
@@ -80,5 +82,9 @@ public class MasterPage {
 
 	public MeuPerfilPage getMeuPerfilPage() {
 		return meuPerfilPage;
+	}
+	
+	public VendaPerdidaPage getVendaPerdidaPage() {
+		return vendaPerdida;
 	}
 }

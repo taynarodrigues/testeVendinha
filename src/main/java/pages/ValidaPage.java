@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ValidaPage {
 
@@ -29,5 +30,10 @@ public class ValidaPage {
 	public String validaCarrinhoLimpo() {
 		sleep();
 		return navegador.findElement(By.xpath("//p[contains(text(),'Carrinho vazio')]")).getText();
+	}
+	
+	public String validaObservacao() {
+		sleep();
+		return navegador.findElement(By.xpath("//textarea[@id='observacoes']")).getAttribute("value");
 	}
 }

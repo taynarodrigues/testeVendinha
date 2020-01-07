@@ -25,7 +25,7 @@ public class CarrinhoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -42,12 +42,13 @@ public class CarrinhoTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("0441487");
 		masterPage.getCatalogoPage().inserirItem();
-		
+
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
 		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getTransportePage().abaTransporte("Transporte", "1", "6000", "6000", "tr", "tr");
 		masterPage.getPagamentoPage().irParaCaixa();
 				
 	}

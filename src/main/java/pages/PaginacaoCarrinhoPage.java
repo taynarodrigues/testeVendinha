@@ -49,6 +49,7 @@ public class PaginacaoCarrinhoPage {
 	}
 	
 	public void paginacaoCarrinhoRigth(int qtd) {
+		sleep();
 		for(int i = 0; i < qtd; i++) {
 			sleep();
 			navegador.findElement(By.xpath("//i[contains(text(),'chevron_right')]")).click();

@@ -31,13 +31,16 @@ public class PagamentoAntecipadoTest {
 		
 		navegador.quit();
 	}
-	@Ignore
+	
+//	@Ignore
 	@Test
 	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
 		
 	
-		masterPage.getCatalogoPage().buscaItem("562");
-		masterPage.getCatalogoPage().inserirItemPaginacao(3);
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
@@ -48,7 +51,7 @@ public class PagamentoAntecipadoTest {
 	
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void naoDeveAplicarPagamentoAntecipado() throws InterruptedException {
 		

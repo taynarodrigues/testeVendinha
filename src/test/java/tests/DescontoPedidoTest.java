@@ -32,7 +32,6 @@ public class DescontoPedidoTest {
 	@Test
 	public void deveAplicarDescontoPedido() throws InterruptedException {
 		
-		
 		masterPage.getCatalogoPage().buscaItem("GP30126");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("GBL1119");

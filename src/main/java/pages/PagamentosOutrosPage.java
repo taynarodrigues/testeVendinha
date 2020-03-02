@@ -45,46 +45,6 @@ public class PagamentosOutrosPage {
 		navegador.findElement(By.xpath("//i[@id='addLine']")).click();
 	}
 
-//	public void selecionaDinheiro(String id, String valorReais) throws InterruptedException {
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='line-" + id + "']")).click();
-//
-//		sleep();
-//		WebElement dinheiro = navegador.findElement(By.xpath("//span[contains(text(),'Venda Dinheiro')]"));
-//		act.moveToElement(dinheiro).click().perform();
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//*[@id=\"valor-" + id + "\"]")).sendKeys(valorReais);
-//
-//		sleep();
-//		navegador.findElement(By.cssSelector("#validateValue-" + id + "")).click();
-//	}
-//
-//	public void selecionaDebito(String id, String valorReais, String adm) throws InterruptedException {
-//
-//		// seleciona a forma de pagamento
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='line-" + id + "']")).click();
-//
-//		sleep();
-//		WebElement debito = navegador.findElement(By.xpath("//span[contains(text(),'Venda A Cartao Debito')]"));
-//		act.moveToElement(debito).click().perform();
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='valor-" + id + "']")).sendKeys(valorReais);
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//md-select[@id='selectAdm-" + id + "']")).click();
-//
-//		sleep();
-//		WebElement admCartao = navegador.findElement(By.xpath("//md-option[contains(.,'" + adm + "')]"));
-//		act.moveToElement(admCartao).click().perform();
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//i[@id='validateValue-" + id + "']")).click();
-//	}
-//
 	public void selecionarFormaPagamento(String id, String tipoPagamento, String valorReais, String adm)
 			throws InterruptedException {
 
@@ -108,39 +68,6 @@ public class PagamentosOutrosPage {
 		sleep();
 		navegador.findElement(By.xpath("//i[@id='validateValue-" + id + "']")).click();
 	}
-//
-//	public void depositoBancario(String id, String valorReais) throws InterruptedException {
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='line-" + id + "']")).click();
-//
-//		sleep();
-//		WebElement depBancario = navegador
-//				.findElement(By.xpath("//span[contains(text(),'Venda A Deposito Bancario.')]"));
-//		act.moveToElement(depBancario).click().perform();
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='valor-" + id + "']")).sendKeys(valorReais);
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//i[@id='validateValue-" + id + "']")).click();
-//	}
-//
-//	public void selecionaCheque(String id, String valorReais) throws InterruptedException {
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='line-" + id + "']")).click();
-//
-//		sleep();
-//		WebElement vCheque = navegador.findElement(By.xpath("//span[contains(text(),'Venda De Cheque')]"));
-//		act.moveToElement(vCheque).click().perform();
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//input[@id='valor-" + id + "']")).sendKeys(valorReais);
-//
-//		sleep();
-//		navegador.findElement(By.xpath("//i[@id='validateValue-" + id + "']")).click();
-//	}
 
 	public void selecionarFormaPagamento(String id, String tipoPagamento, String valorReais)
 			throws InterruptedException {

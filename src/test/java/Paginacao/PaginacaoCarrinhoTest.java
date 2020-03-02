@@ -30,25 +30,21 @@ public class PaginacaoCarrinhoTest {
 	@Test
 	public void deveFinalizarVendaPaginacaoCarrinho() throws InterruptedException {
 		
-		masterPage.getCatalogoPage().buscaItem("Amortecedor");
+		masterPage.getCatalogoPage().buscaItem("Amorte");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
 		masterPage.getCatalogoPage().inserirItemPaginacao(2);
 		masterPage.getCatalogoPage().inserirItemPaginacao(3);
 		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getCatalogoPage().buscaItem("Pneu");
+		masterPage.getCatalogoPage().buscaItem("7741");
 		masterPage.getCatalogoPage().inserirItem();
 		
-		masterPage.getCatalogoPage().buscaItem("Vela");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
 		masterPage.getCatalogoPage().inserirItemPaginacao(2);
-		masterPage.getCatalogoPage().inserirItemPaginacao(3);
-		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
 		masterPage.getCatalogoPage().buscaItem("rolamento");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
-		masterPage.getCatalogoPage().inserirItemPaginacao(2);
-		masterPage.getCatalogoPage().inserirItemPaginacao(3);
 		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 	
 		
@@ -62,13 +58,13 @@ public class PaginacaoCarrinhoTest {
 	@Ignore
 	@Test
 	public void deveFinalizarVendaCarrinhoAddQuantidade() throws InterruptedException {
-		masterPage.getCatalogoPage().buscaItem("vela");
+		masterPage.getCatalogoPage().buscaItem("Amorte");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
 		masterPage.getCatalogoPage().inserirItemPaginacao(2);
 		masterPage.getCatalogoPage().inserirItemPaginacao(3);
 		masterPage.getCatalogoPage().inserirItemPaginacao(4);
 		
-		masterPage.getCatalogoPage().buscaItem("amortecedor");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItemPaginacao(1);
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		
@@ -76,7 +72,6 @@ public class PaginacaoCarrinhoTest {
 		masterPage.getCarrinhoPage().aumentaQuantidade(6, "5");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
-		
 	}
 
 }

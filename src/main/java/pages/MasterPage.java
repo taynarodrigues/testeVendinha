@@ -17,6 +17,11 @@ public class MasterPage {
 	private ValidaPage validaPage;
 	private FormaDePagamentoPage formaPagamentoPage;
 	private VendaPerdidaPage vendaPerdida;
+	private SimilaresPage similaresPage;
+	private CodigoCompraPage codigoCompra;
+	private AplicacoesPage aplicacoesPage;
+	private MobilePage mobilePage;
+	private PagamentosOutrosPage pagamentosOutros;
 
 	public MasterPage(WebDriver navegador) {
 
@@ -33,11 +38,20 @@ public class MasterPage {
 		this.carrinhoPage = new CarrinhoPage(navegador);
 		this.formaPagamentoPage = new FormaDePagamentoPage(navegador);
 		this.vendaPerdida = new VendaPerdidaPage(navegador);
+		this.similaresPage = new SimilaresPage(navegador);
+		this.codigoCompra = new CodigoCompraPage(navegador);
+		this.aplicacoesPage = new AplicacoesPage(navegador);
+		this.mobilePage = new MobilePage(navegador);
+		this.pagamentosOutros = new PagamentosOutrosPage(navegador);
 
 	}
 
 	public FormaDePagamentoPage getFormaPagamentoPage() {
 		return formaPagamentoPage;
+	}
+	
+	public MobilePage getMobilePage() {
+		return mobilePage;
 	}
 
 	public ValidaPage getValidaPage() {
@@ -86,5 +100,21 @@ public class MasterPage {
 	
 	public VendaPerdidaPage getVendaPerdidaPage() {
 		return vendaPerdida;
+	}
+	
+	public SimilaresPage getSimilaresPage() {
+		return similaresPage;
+	}
+	
+	public CodigoCompraPage getCodigoCompraPage() {
+		return codigoCompra;
+	}
+	
+	public AplicacoesPage getAplicacoesPage() {
+		return aplicacoesPage;
+	}
+	
+	public PagamentosOutrosPage getPagamentosOutrosPage() {
+		return pagamentosOutros;
 	}
 }

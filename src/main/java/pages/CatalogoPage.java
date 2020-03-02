@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CatalogoPage {
 	private WebDriver navegador;
@@ -16,7 +18,7 @@ public class CatalogoPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +63,21 @@ public class CatalogoPage {
 		quantidade.sendKeys(quant);
 
 		navegador.findElement(By.id("add-in-cart-detail-done")).click();
-
 	}
+	//Tester12
 
+	public boolean validaVariosItensAdicionados(int numero) {
+		
+		WebDriverWait espera = new WebDriverWait(navegador, 10);
+		boolean resultado = false;
+		
+		sleep();
+		for(int i =1; i <= numero; i++) {
+			resultado = espera.until(ExpectedConditions
+					.visibilityOfElementLocated(By.cssSelector("#itemList > tr:nth-child(" + i + ")")))
+			.isDisplayed();
+		}
+		sleep();
+		return resultado;
+	}
 }

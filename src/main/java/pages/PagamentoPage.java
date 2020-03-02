@@ -40,7 +40,9 @@ public class PagamentoPage {
 
 	public void administradoraCartao(String adm) {
 
+		sleep();
 		navegador.findElement(By.id("administradora")).click();
+		sleep();
 		navegador.findElement(By.xpath("//md-option[contains(.,'" + adm + "')]")).click();
 	}
 

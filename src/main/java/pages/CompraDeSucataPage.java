@@ -18,7 +18,7 @@ public class CompraDeSucataPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -44,7 +44,7 @@ public class CompraDeSucataPage {
 
 		sleep();
 		navegador.findElement(By.cssSelector("#peso-" + id + "")).sendKeys(valorPeso);
-	}
+	}                                       
 
 	public void finalizarCompraSucata() {
 		sleep();

@@ -2,6 +2,8 @@ package ConsumidorFinal;
 
 import static org.junit.Assert.assertEquals;
 
+import java.sql.SQLException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -9,6 +11,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import pages.MasterPage;
+import query.QueryVendas;
 import suporte.Web;
 
 public class PagamentoAntecipadoTest {
@@ -27,12 +30,13 @@ public class PagamentoAntecipadoTest {
 	}
 	
 	@After
-	public void tearDown() {
+	public void tearDown() throws ClassNotFoundException, SQLException {
 		
+		masterPage.getMobilePage().realizaSeparacao(QueryVendas.buscaControlePedido());
 		navegador.quit();
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
 		

@@ -17,12 +17,12 @@ public class DescontosEAcrescimosPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public void botaoDescontoPedido() {
 		sleep();
 		navegador.findElement(By.xpath("//a[@id='btnDropdownTotal']")).click();
@@ -39,6 +39,7 @@ public class DescontosEAcrescimosPage {
 	}
 
 	public void adicionaAcrescimoPedido(String valorAcrescimo) {
+
 		sleep();
 		WebElement aba = navegador.findElement(By.xpath(
 				"/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/cart-footer[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/cart-discount-total[1]/md-tab-group[1]/md-tab-header[1]/div[2]/div[1]/div[1]/div[2]"));
@@ -60,5 +61,28 @@ public class DescontosEAcrescimosPage {
 		act.moveToElement(abaAcrescimo).click().perform();
 
 		navegador.findElement(By.xpath("//input[@id='valorFrete']")).sendKeys(valorFrete);
+	}
+
+	public void adicionaAcrescimoItem(String posicao) {
+		sleep();
+		WebElement abaItem = navegador.findElement(
+				By.xpath("/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/section[1]/table[1]/tbody[1]/tr["
+						+ posicao + "]/td[13]/button[1]"));
+		act.moveToElement(abaItem).click().perform();
+
+	}
+
+	public void aplicarAcrescimoItem(String posicao, String valorAcrescimo) {
+
+		sleep();
+		navegador.findElement(By.xpath(
+				"/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/section[1]/table[1]/tbody[1]/tr["+ posicao +"]/td[13]/div[1]/div[1]/cart-item-desc[1]/md-tab-group[1]/md-tab-header[1]/div[2]/div[1]/div[1]/div[2]"))
+				.click();
+
+		sleep();
+		navegador.findElement(By.xpath("//input[@id='valorAcrescimoTotal']")).sendKeys(valorAcrescimo);
+
+		sleep();
+		navegador.findElement(By.xpath("//a[contains(text(),'Aplicar')]")).click();
 	}
 }

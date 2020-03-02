@@ -22,7 +22,7 @@ public class PaginacaoCatalogoPrincipalTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 	
-//	@After
+	@After
 	public void tearDown() {
 		
 		navegador.quit();
@@ -47,7 +47,7 @@ public class PaginacaoCatalogoPrincipalTest {
 		
 		masterPage.getCatalogoPage().buscaItem("amortecedor");
 		masterPage.getPaginacaoCarrinhoPage().paginacaoPrincipalRight(3);
-		masterPage.getPaginacaoCarrinhoPage().paginacaoRecomendadosRight(3);
+		masterPage.getPaginacaoCarrinhoPage().paginacaoRecomendadosRight(2);
 		
 		masterPage.getLoginPage().lookOpen();
 	}

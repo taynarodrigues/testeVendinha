@@ -1,7 +1,5 @@
 package Aleatorio;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +46,8 @@ public class CarrinhoTest {
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
 		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getTransportePage().abaTransporte("Transporte", "1", "6000", "6000", "tr", "tr");
+		masterPage.getTransportePage().abaTransporte("Transporte", "1");
+		masterPage.getTransportePage().preencheCamposTransporte();
 		masterPage.getPagamentoPage().irParaCaixa();
 				
 	}

@@ -28,7 +28,7 @@ public class PedidosEmAbertoTest {
 
 	@Ignore
 	@Test
-	public void deveVerificarOsPedidosEmAberto() {
+	public void deveVerificarOsPedidosEmAberto() throws InterruptedException {
 
 		masterPage.getMeuPerfilPage().irParaMeuPerfil();
 		masterPage.getMeuPerfilPage().abaPedidosEmAbertos();

@@ -21,6 +21,11 @@ public class CarrinhoPage {
 
 		e.until(ExpectedConditions.invisibilityOfElementLocated(By.className("general-loading")));
 	}
+	
+	private void sleep() throws InterruptedException {
+
+		Thread.sleep(1000);
+	}
 
 	public void irParaCarrinho() {
 		esperaLoading();
@@ -28,7 +33,8 @@ public class CarrinhoPage {
 				.click();
 	}
 
-	public void finalizaVenda() {
+	public void finalizaVenda() throws InterruptedException {
+		sleep();
 		esperaLoading();
 		navegador.findElement(By.xpath("//p[contains(text(),'Finalizar Venda')]")).click();
 	}
@@ -99,6 +105,7 @@ public class CarrinhoPage {
 			.findElement(By
 					.xpath("//tr["+ posicao +"]//td[8]//app-add-quantidade[1]//div[1]//span[1]//a[2]//i[1]"))
 			.click();
+			
 		}
 	}
 

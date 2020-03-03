@@ -8,7 +8,6 @@ public enum TipoPagamentoEnum {
 		switch (this) {
 		case DINHEIRO:
 			return "Venda Dinheiro";
-
 		case CHEQUE:
 			return "Venda De Cheque";
 		case DEBITO:
@@ -34,4 +33,5 @@ public enum TipoPagamentoEnum {
 			return null;
 		}
 	}
+
 }

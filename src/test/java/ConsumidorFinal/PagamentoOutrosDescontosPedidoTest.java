@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
 import enums.TipoPagamentoEnum;
 import pages.MasterPage;
 import query.QueryVendas;
@@ -26,7 +25,7 @@ public class PagamentoOutrosDescontosPedidoTest {
 		masterPage.getLoginPage().fazLogin("v9437", "v9437");
 	}
 
-//	@After
+	@After
 	public void tearDown() throws ClassNotFoundException, SQLException {
 
 		masterPage.getMobilePage().realizaSeparacao(QueryVendas.buscaControlePedido());
@@ -62,6 +61,7 @@ public class PagamentoOutrosDescontosPedidoTest {
 		masterPage.getPagamentosOutrosPage().selecionarFormaPagamento("3", TipoPagamentoEnum.DEPOSITO.getPagamento(), "500");
 		masterPage.getPagamentosOutrosPage().selecionarFormaPagamento("4", TipoPagamentoEnum.CHEQUE.getPagamento(), "500");
 		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
 	}
 	
 }

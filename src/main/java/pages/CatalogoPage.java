@@ -18,7 +18,7 @@ public class CatalogoPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,6 +38,7 @@ public class CatalogoPage {
 	public void inserirItem() {
 		sleep();
 		navegador.findElement(By.xpath("//i[@class='material-icons shopping-cart-icon']")).click();
+		sleep();
 	}
 
 	public void inserirItemPaginacao(int posicao) {
@@ -64,7 +65,6 @@ public class CatalogoPage {
 
 		navegador.findElement(By.id("add-in-cart-detail-done")).click();
 	}
-	//Tester12
 
 	public boolean validaVariosItensAdicionados(int numero) {
 		

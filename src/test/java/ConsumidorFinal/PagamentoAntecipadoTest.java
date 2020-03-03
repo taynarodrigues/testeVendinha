@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
 import pages.MasterPage;
 import query.QueryVendas;
 import suporte.Web;
@@ -41,16 +40,17 @@ public class PagamentoAntecipadoTest {
 	public void deveAplicarPagamentoAntecipado() throws InterruptedException {
 		
 	
-		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().buscaItem("SE30829");
 		masterPage.getCatalogoPage().inserirItem();
-		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().buscaItem("AC30728");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
 		masterPage.getFormaPagamentoPage().pagamentoAntecipado();
 		masterPage.getCarrinhoPage().finalizaVenda();
-		masterPage.getTransportePage().abaTransporte("TRANSPORTE", "1", "2000", "1000", "fiat", "F");
+		masterPage.getTransportePage().abaTransporte("TRANSPORTE", "1");
+		masterPage.getTransportePage().preencheCamposTransporte();
 		masterPage.getPagamentoPage().irParaCaixa();
 	
 	}

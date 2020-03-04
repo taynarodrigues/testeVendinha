@@ -32,7 +32,7 @@ public class PagamentoOutrosDescontosPedidoTest {
 		navegador.quit();
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void deveFinalizarVendaDescontoPedidoOutrosDebito() throws InterruptedException {
 		

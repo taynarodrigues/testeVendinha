@@ -24,31 +24,47 @@ public class CompraDeSucataPage {
 		}
 	}
 
-
 	public void adicionarSucata() {
 		sleep();
-		navegador.findElement(By.xpath("//i[@id='addDiscountWaste']")).click();
+		navegador.findElement(By.id("btnDescontoSucata")).click();
 	}
 
 	public void preencherCampoSucata(String sucataAmperes, String id, String valorPeso) {
+
 		sleep();
-		navegador.findElement(By.xpath("//input[@id='fornecedor-" + id + "']")).click();
+		navegador.findElement(By.id("addDiscountWaste")).click();
+
+		sleep();
+//		navegador.findElement(By.cssSelector("div[class='mat-input-infix'] input[placeholder='Fornecedor']")).click();
+		navegador.findElement(By.xpath(
+				"/html[1]/body[1]/main[1]/div[3]/cart-discount-waste[1]/div[1]/div[2]/div[1]/div[1]/add-multi-discount-waste-refact["
+						+ id + "]/div[1]/div[1]/div[1]/md-input-container[1]/div[1]/div[1]/div[1]/input[1]"))
+				.click();
+
+		sleep();
 		navegador.findElement(By.xpath("//span[contains(text(),'Compra Sucata De Baterias')]")).click();
 
 		sleep();
-		navegador.findElement(By.xpath("//input[@id='sucata-" + id + "']")).click();
+		navegador.findElement(By.xpath(
+				"/html[1]/body[1]/main[1]/div[3]/cart-discount-waste[1]/div[1]/div[2]/div[1]/div[1]/add-multi-discount-waste-refact["
+						+ id + "]/div[1]/div[1]/div[2]/md-input-container[1]/div[1]/div[1]/div[1]/input[1]"))
+				.click();
+
+		sleep();
 		WebElement sucat = navegador.findElement(By.xpath(
 				"//span[contains(text(),'" + sucataAmperes + "A-SUCATA BATERIA - - " + sucataAmperes + " AMPERES')]"));
-
 		act.moveToElement(sucat).click().build().perform();
 
 		sleep();
-		navegador.findElement(By.cssSelector("#peso-" + id + "")).sendKeys(valorPeso);
-	}                                       
+		navegador.findElement(By.xpath(
+				"/html[1]/body[1]/main[1]/div[3]/cart-discount-waste[1]/div[1]/div[2]/div[1]/div[1]/add-multi-discount-waste-refact["
+						+ id + "]/div[1]/div[1]/div[4]/md-input-container[1]/div[1]/div[1]/div[1]/input[1]"))
+				.sendKeys(valorPeso);
+	}
 
 	public void finalizarCompraSucata() {
 		sleep();
-		navegador.findElement(By.xpath("//a[@id='btnFinalSales']")).click();
+		navegador.findElement(By.xpath("//i[contains(text(),'done')]")).click();
 	}
 
 	public void doacaoSucata() {

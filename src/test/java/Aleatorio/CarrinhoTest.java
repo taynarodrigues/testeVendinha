@@ -40,7 +40,6 @@ public class CarrinhoTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("0441487");
 		masterPage.getCatalogoPage().inserirItem();
-
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("REAL CAR LOCADORA DE VEICULOS LTDA");
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
@@ -48,8 +47,7 @@ public class CarrinhoTest {
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getTransportePage().abaTransporte("Transporte", "1");
 		masterPage.getTransportePage().preencheCamposTransporte();
-		masterPage.getPagamentoPage().irParaCaixa();
-				
+		masterPage.getPagamentoPage().irParaCaixa();		
 	}
 
 }

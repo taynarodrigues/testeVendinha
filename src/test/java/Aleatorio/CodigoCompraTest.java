@@ -47,17 +47,15 @@ public class CodigoCompraTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("SK836S");
 		masterPage.getCatalogoPage().inserirItem();
-		
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
-		masterPage.getCodigoCompraPage().codigoCompra("RETH53432");
-		masterPage.getCodigoCompraPage().codigoItem("1", "10");
-		masterPage.getCodigoCompraPage().codigoItem("2", "11");
-		masterPage.getCodigoCompraPage().codigoItem("3", "12");
-		masterPage.getCodigoCompraPage().codigoItem("4", "13");
-		masterPage.getCodigoCompraPage().codigoItem("5", "14");
-		masterPage.getCodigoCompraPage().codigoItem("6", "15");
-		
+		masterPage.getCarrinhoPage().codigoCompra("RETH53432");
+		masterPage.getCarrinhoPage().codigoItem("1", "10");
+		masterPage.getCarrinhoPage().codigoItem("2", "11");
+		masterPage.getCarrinhoPage().codigoItem("3", "12");
+		masterPage.getCarrinhoPage().codigoItem("4", "13");
+		masterPage.getCarrinhoPage().codigoItem("5", "14");
+		masterPage.getCarrinhoPage().codigoItem("6", "15");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
 	}
@@ -76,11 +74,11 @@ public class CodigoCompraTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
-		masterPage.getCodigoCompraPage().codigoCompra("RETH53432");
-		masterPage.getCodigoCompraPage().codigoItem("1", "10");
-		masterPage.getCodigoCompraPage().codigoItem("2", "11");
-		masterPage.getCodigoCompraPage().codigoItem("3", "");
-		masterPage.getCodigoCompraPage().codigoItem("4", "12");
+		masterPage.getCarrinhoPage().codigoCompra("RETH53432");
+		masterPage.getCarrinhoPage().codigoItem("1", "10");
+		masterPage.getCarrinhoPage().codigoItem("2", "11");
+		masterPage.getCarrinhoPage().codigoItem("3", "");
+		masterPage.getCarrinhoPage().codigoItem("4", "12");
 		masterPage.getCarrinhoPage().removerCliente();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();

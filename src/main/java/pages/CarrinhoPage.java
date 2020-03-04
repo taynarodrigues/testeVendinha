@@ -21,7 +21,7 @@ public class CarrinhoPage {
 
 		e.until(ExpectedConditions.invisibilityOfElementLocated(By.className("general-loading")));
 	}
-	
+
 	private void sleep() throws InterruptedException {
 
 		Thread.sleep(1000);
@@ -39,8 +39,10 @@ public class CarrinhoPage {
 		navegador.findElement(By.xpath("//p[contains(text(),'Finalizar Venda')]")).click();
 	}
 
-	public void salvarOrcamento() {
+	public void salvarOrcamento() throws InterruptedException {
+
 		esperaLoading();
+		sleep();
 		navegador.findElement(By.xpath("//p[contains(text(),'Salvar orçamento')]")).click();
 		esperaLoading();
 
@@ -102,10 +104,10 @@ public class CarrinhoPage {
 //					"/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/section[1]/table[1]/tbody[1]/tr[ "+ posicao +" ]/td[8]/app-add-quantidade[1]/div[1]/span[1]/a[2]/i[1]"))
 //					.click();
 			navegador
-			.findElement(By
-					.xpath("//tr["+ posicao +"]//td[8]//app-add-quantidade[1]//div[1]//span[1]//a[2]//i[1]"))
-			.click();
-			
+					.findElement(By
+							.xpath("//tr[" + posicao + "]//td[8]//app-add-quantidade[1]//div[1]//span[1]//a[2]//i[1]"))
+					.click();
+
 		}
 	}
 
@@ -118,6 +120,29 @@ public class CarrinhoPage {
 							+ posicao + "]/td[7]/app-add-quantidade[1]/div[1]/span[1]/a[1]/i[1]"))
 					.click();
 		}
+	}
+
+	public void codigoCompra(String codigo) throws InterruptedException {
+
+		sleep();
+		WebElement ordemCompra = navegador.findElement(By.name("orderCompra"));
+		ordemCompra.clear();
+		ordemCompra.sendKeys(codigo);
+
+		sleep();
+		navegador.findElement(By.xpath("//th[2]")).click();
+	}
+
+	public void codigoItem(String posicao, String valor) throws InterruptedException {
+
+		sleep();
+		WebElement codItem = navegador.findElement(
+				By.xpath("/html[1]/body[1]/main[1]/div[2]/div[1]/cart[1]/div[1]/section[1]/table[1]/tbody[1]/tr[ "
+						+ posicao + " ]/td[5]/div[1]/md-input-container[1]/div[1]/div[1]/div[1]/input[1]"));
+
+		codItem.sendKeys(valor);
+
+		navegador.findElement(By.xpath("//th[2]")).click();
 	}
 
 }

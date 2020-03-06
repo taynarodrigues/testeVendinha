@@ -36,7 +36,7 @@ public class AcrescimoPedidoTest {
 	
 	@Ignore
 	@Test
-	public void deveAplicarAcrescimoPedido() throws InterruptedException {
+	public void deveAplicarAcrescimoPedidoConsumidorFinal() throws InterruptedException {
 		
 		masterPage.getCatalogoPage().buscaItem("GBL1119");
 		masterPage.getCatalogoPage().inserirItem();
@@ -50,10 +50,62 @@ public class AcrescimoPedidoTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
-		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("482");
-		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();
-		
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("952");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();	
 		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();	
+		masterPage.getLoginPage().validaTelaLogin();
+	}
+	
+	@Ignore
+	@Test
+	public void deveAplicarAcrescimoPedidoAddCliente() throws InterruptedException {
+		
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCatalogoPage().buscaItem("SK356S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("SK894S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("4");
+		masterPage.getCatalogoPage().buscaItem("SK836S");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("952");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();	
+		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");	
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();	
+		masterPage.getLoginPage().validaTelaLogin();
+	}
+	
+	@Ignore
+	@Test
+	public void deveAplicarAcrescimoPedidoAddClienteAddVendaDebito() throws InterruptedException {
+		
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("SK356S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("SK894S");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("SK836S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCarrinhoPage().irParaCarrinho();	
+		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("342");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();
+		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");	
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoDebito();
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getFormaPagamentoPage().administradoraCartao("Cielo");
 		masterPage.getPagamentoPage().irParaCaixa();	
 		masterPage.getLoginPage().validaTelaLogin();
 	}
@@ -66,25 +118,21 @@ public class AcrescimoPedidoTest {
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("GP30126");
 		masterPage.getCatalogoPage().inserirItem();
-
 		masterPage.getCatalogoPage().buscaItem("vela");
-		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
 		masterPage.getCatalogoPage().buscaItem("NK0424");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("SK356S");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("SK894S");
-		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
 		masterPage.getCatalogoPage().buscaItem("SK836S");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
-
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("1");
-		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("1","230");
-		
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("1","250");
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("2");
 		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("2","103");
-		
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("3");
 		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("3","207");
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("4");
@@ -93,7 +141,43 @@ public class AcrescimoPedidoTest {
 		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("5","358");
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("6");
 		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("6","098");
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().irParaCaixa();	
+		masterPage.getLoginPage().validaTelaLogin();
+	}
+	
+	@Ignore
+	@Test
+	public void deveAplicarAcrescimoPedidoItemAddCliente() throws InterruptedException {
 		
+		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("vela");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("NK0424");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCatalogoPage().buscaItem("SK356S");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCatalogoPage().buscaItem("SK894S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterPage.getCatalogoPage().buscaItem("SK836S");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("4");
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("1");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("1","230");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("2");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("2","703");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("3");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("3","207");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("4");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("4","489");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("5");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("5","258");
+		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoItem("6");
+		masterPage.getDescontoAcrescimoPage().aplicarAcrescimoItem("6","598");
+		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();	
 		masterPage.getLoginPage().validaTelaLogin();

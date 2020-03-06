@@ -20,7 +20,7 @@ public class FormaDePagamentoPage {
 	private void sleep() {
 
 		try {
-			Thread.sleep(500);
+			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -49,6 +49,24 @@ public class FormaDePagamentoPage {
 		navegador.findElement(By.xpath("//div[@id='done']")).click();
 	}
 
+	public void pagamentoDebito() {
+
+		sleep();
+		navegador.findElement(By.id("condAVista")).click();
+
+		sleep();
+		WebElement cartao = navegador
+				.findElement(By.xpath("//md-option[contains(.,' Cartao ')]"));
+		Actions act = new Actions(navegador);
+		act.moveToElement(cartao).click().perform();
+
+		sleep();
+		navegador.findElement(By.id("condicoes-CD")).click();
+
+		sleep();
+		navegador.findElement(By.id("done")).click();
+	}
+
 	public void pagamentoAntecipado() {
 		sleep();
 		navegador.findElement(By.xpath("//md-select[@id='condAVista']")).click();
@@ -74,6 +92,14 @@ public class FormaDePagamentoPage {
 		navegador.findElement(By.id("done")).click();
 	}
 
+	public void administradoraCartao(String adm) {
+
+		sleep();
+		navegador.findElement(By.id("administradora")).click();
+		sleep();
+		navegador.findElement(By.xpath("//md-option[contains(.,'" + adm + "')]")).click();
+	}
+
 	public void tipoEntregaPresencial(String tipoEntrega) throws InterruptedException {
 
 		navegador.findElement(By.xpath("//small[contains(text(),'Presencial')]")).click();
@@ -87,12 +113,13 @@ public class FormaDePagamentoPage {
 		tipo.sendKeys(Keys.ARROW_DOWN);
 		tipo.sendKeys(Keys.ENTER);
 	}
-	
+
 	public void condicaoFiscal(String codigoOperacaoFiscal, String texto) {
-		
+
 		navegador.findElement(By.xpath("//small[contains(text(),'Venda Cliente')]")).click();
 		navegador.findElement(By.xpath("//md-select[@id='fiscal']//span[@class='mat-select-arrow']")).click();
-		WebElement idCodOperacaoFiscal = navegador.findElement(By.xpath("/html[1]/body[1]/div[3]/div[3]/div[1]/div[1]/md-option[ "+codigoOperacaoFiscal+" ]"));
+		WebElement idCodOperacaoFiscal = navegador.findElement(
+				By.xpath("/html[1]/body[1]/div[3]/div[3]/div[1]/div[1]/md-option[ " + codigoOperacaoFiscal + " ]"));
 		idCodOperacaoFiscal.sendKeys(codigoOperacaoFiscal);
 		idCodOperacaoFiscal.sendKeys(Keys.ARROW_DOWN);
 		idCodOperacaoFiscal.sendKeys(Keys.ENTER);

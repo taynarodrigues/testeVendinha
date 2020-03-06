@@ -41,7 +41,6 @@ public class PedidosEmAbertoTest {
 		masterpage.getCatalogoPage().inserirItemPaginacao(2);
 		masterpage.getCatalogoPage().inserirItemPaginacao(3);
 		masterpage.getCarrinhoPage().irParaCarrinho();
-		
 		masterpage.getCarrinhoPage().salvarOrcamento();
 		masterpage.getMeuPerfilPage().irParaMeuPerfil();
 		masterpage.getMeuPerfilPage().abaPedidosEmAbertos();
@@ -160,7 +159,70 @@ public class PedidosEmAbertoTest {
 		masterpage.getCarrinhoPage().finalizaVenda();
 		masterpage.getPagamentoPage().irParaCaixa();
 		masterpage.getLoginPage().validaTelaLogin();
-
 	}
-
+	
+	@Ignore
+	@Test
+	public void deveAddItensAlterarQuantidadeVerificarValorSalvarOrcamentoFinalizarVenda() throws InterruptedException {
+		
+		masterpage.getCatalogoPage().buscaItem("VELA");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterpage.getCatalogoPage().buscaItem("562");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("4");
+		masterpage.getCatalogoPage().buscaItem("7741");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("5");
+		masterpage.getCarrinhoPage().irParaCarrinho();
+		masterpage.getCarrinhoPage().aumentaQuantidade(4, "1");
+		masterpage.getCarrinhoPage().aumentaQuantidade(2, "2");
+		masterpage.getCarrinhoPage().salvarOrcamento();
+		masterpage.getMeuPerfilPage().irParaMeuPerfil();
+		masterpage.getMeuPerfilPage().finalizarPedidoEmAberto("1");
+		masterpage.getCarrinhoPage().finalizaVenda();
+		masterpage.getPagamentoPage().irParaCaixa();
+		masterpage.getLoginPage().validaTelaLogin();
+	}
+	
+	@Ignore
+	@Test
+	public void deveAddItensAlterarFormaPagamentoVerificarValorSalvarOrcamentoFinalizarVenda() throws InterruptedException {
+		
+		masterpage.getCatalogoPage().buscaItem("VELA");
+		masterpage.getCatalogoPage().inserirItem();
+		masterpage.getCatalogoPage().buscaItem("562");
+		masterpage.getCatalogoPage().inserirItem();
+		masterpage.getCarrinhoPage().irParaCarrinho();
+		masterpage.getFormaPagamentoPage().condicaoPagamento();
+		masterpage.getFormaPagamentoPage().pagamentoDebito();
+		masterpage.getCarrinhoPage().salvarOrcamento();
+		masterpage.getMeuPerfilPage().irParaMeuPerfil();
+		masterpage.getMeuPerfilPage().finalizarPedidoEmAberto("1");
+		masterpage.getCarrinhoPage().finalizaVenda();
+		masterpage.getFormaPagamentoPage().administradoraCartao("Redecard");
+		masterpage.getPagamentoPage().irParaCaixa();
+		masterpage.getLoginPage().validaTelaLogin();	
+	}
+	
+	@Ignore
+	@Test
+	public void deveAddItensAddClienteAddVendaPedidaAddOrdemCompraVerificaValorFinalizarVenda() throws InterruptedException {
+		
+		masterpage.getCatalogoPage().buscaItem("VELA");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("2");
+		masterpage.getCatalogoPage().buscaItem("7741");
+		masterpage.getCatalogoPage().inserirItemPaginacao(2);
+		masterpage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterpage.getCatalogoPage().buscaItem("562");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterpage.getCatalogoPage().buscaItem("123");
+		masterpage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterpage.getCarrinhoPage().irParaCarrinho();
+		masterpage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");
+		masterpage.getCarrinhoPage().codigoCompra("RETH53432");
+		masterpage.getCarrinhoPage().codigoItem("1", "10");
+		masterpage.getCarrinhoPage().codigoItem("2", "11");
+		masterpage.getCarrinhoPage().codigoItem("3", "12");
+		masterpage.getCarrinhoPage().finalizaVenda();
+		masterpage.getPagamentoPage().irParaCaixa();
+		masterpage.getLoginPage().validaTelaLogin();
+	}
 }

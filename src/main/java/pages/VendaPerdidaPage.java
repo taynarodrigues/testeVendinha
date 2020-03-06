@@ -14,8 +14,14 @@ public class VendaPerdidaPage {
 		this.navegador = navegador;
 	}
 
-	public void vendaPerdida(String posicaoElemento) {
+	private void sleep() throws InterruptedException {
 
+		Thread.sleep(1000);
+	}
+
+	public void vendaPerdida(String posicaoElemento) throws InterruptedException {
+
+		sleep();
 		navegador.findElement(By.xpath(
 				"/html[1]/body[1]/main[1]/div[2]/div[1]/search-container[1]/div[1]/md-sidenav-container[1]/div[4]/div[2]/div[1]/div[1]/found[1]/div[1]/div[2]/carousel[1]/div[1]/div[1]/div[1]/div[ "
 						+ posicaoElemento + " ]/div[1]/card-found[1]/div[1]/div[4]/div[3]/div[2]/div[1]/i[2]"))
@@ -30,8 +36,9 @@ public class VendaPerdidaPage {
 				.click();
 	}
 
-	public void opcaoVendaPerdida(String qtdPerdida, String qtdAtendida, String obs) {
-		
+	public void opcaoVendaPerdida(String qtdPerdida, String qtdAtendida, String obs) throws InterruptedException {
+
+		sleep();
 		navegador.findElement(By.xpath("//li[contains(text(),'Venda Perdida')]")).click();
 
 		WebElement perdida = navegador.findElement(By.xpath("//input[@id='quantidadePerdida']"));
@@ -40,13 +47,14 @@ public class VendaPerdidaPage {
 
 		navegador.findElement(By.xpath("//input[@id='quantidadeAtendida']")).sendKeys(qtdAtendida);
 		navegador.findElement(By.xpath("//input[@id='observacao']")).sendKeys(obs);
+		sleep();
 	}
 
 	public void confirmaVendaPerdida() {
 		navegador.findElement(By.xpath("//i[contains(text(),'done')]")).click();
 	}
 
-	public void sairVendaPerdida() {
+	public void sairVendaPerdida()  {
 		navegador
 				.findElement(
 						By.xpath("//div[@id='addItemMain']//i[@class='material-icons'][contains(text(),'arrow_back')]"))

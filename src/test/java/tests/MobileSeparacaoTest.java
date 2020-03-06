@@ -32,6 +32,6 @@ public class MobileSeparacaoTest {
 	@Test
 	public void mobile() {
 
-		mp.realizaSeparacao("3400293634");
+		mp.realizaSeparacao("3200192019");
 	}
 }

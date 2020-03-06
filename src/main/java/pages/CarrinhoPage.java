@@ -27,7 +27,8 @@ public class CarrinhoPage {
 		Thread.sleep(1000);
 	}
 
-	public void irParaCarrinho() {
+	public void irParaCarrinho() throws InterruptedException {
+		sleep();
 		esperaLoading();
 		navegador.findElement(By.xpath("//i[@class='material-icons center-align'][contains(text(),'shopping_cart')]"))
 				.click();
@@ -45,9 +46,14 @@ public class CarrinhoPage {
 		sleep();
 		navegador.findElement(By.xpath("//p[contains(text(),'Salvar orçamento')]")).click();
 		esperaLoading();
-
 	}
 
+//	public void condicaoPagamento() throws InterruptedException {
+//		
+//		sleep();
+//		navegador.findElement(By.xpath("//p[contains(text(),'Condição de Pagamento')]")).click();
+//	}
+	
 	public void excluirCarrinho() {
 		esperaLoading();
 		navegador.findElement(By.xpath(

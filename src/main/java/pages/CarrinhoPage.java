@@ -48,12 +48,6 @@ public class CarrinhoPage {
 		esperaLoading();
 	}
 
-//	public void condicaoPagamento() throws InterruptedException {
-//		
-//		sleep();
-//		navegador.findElement(By.xpath("//p[contains(text(),'Condição de Pagamento')]")).click();
-//	}
-	
 	public void excluirCarrinho() {
 		esperaLoading();
 		navegador.findElement(By.xpath(
@@ -93,7 +87,8 @@ public class CarrinhoPage {
 				.click();
 	}
 
-	public void aumentaQuantidade(int qtd, String posicao) {
+	public void aumentaQuantidade(int qtd, String posicao) throws InterruptedException {
+		sleep();
 		for (int i = 0; i < qtd; i++) {
 
 			esperaLoading();

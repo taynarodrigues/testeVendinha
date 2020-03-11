@@ -1,5 +1,7 @@
 package Aleatorio;
 
+import java.sql.SQLException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -7,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import pages.MasterPage;
+import query.QueryVendas;
 import suporte.Web;
 
 public class CodigoCompraTest {
@@ -24,8 +27,9 @@ public class CodigoCompraTest {
 	}
 
 	@After
-	public void tearDown() {
+	public void tearDown() throws ClassNotFoundException, SQLException {
 
+		masterPage.getMobilePage().realizaSeparacao(QueryVendas.buscaControlePedido());
 		navegador.quit();
 	}
 	
@@ -58,6 +62,7 @@ public class CodigoCompraTest {
 		masterPage.getCarrinhoPage().codigoItem("6", "15");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
 	}
 	
 	@Ignore
@@ -82,6 +87,7 @@ public class CodigoCompraTest {
 		masterPage.getCarrinhoPage().removerCliente();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
 	}
 	
 

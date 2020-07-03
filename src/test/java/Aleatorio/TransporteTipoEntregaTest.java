@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +12,7 @@ import pages.MasterPage;
 import query.QueryVendas;
 import suporte.Web;
 
-public class FretePedidoTest {
+public class TransporteTipoEntregaTest {
 	
 	private WebDriver navegador;
 	private MasterPage masterPage;

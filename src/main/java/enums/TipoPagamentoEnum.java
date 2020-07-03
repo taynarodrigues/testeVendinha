@@ -26,7 +26,7 @@ public enum TipoPagamentoEnum {
 
 		switch (this) {
 		case CIELO:
-			return "Redecard";
+			return "Cielo";
 		case FITCARD:
 			return "Fitcard";
 		default:

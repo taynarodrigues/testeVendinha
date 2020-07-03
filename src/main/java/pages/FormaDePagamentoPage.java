@@ -32,6 +32,7 @@ public class FormaDePagamentoPage {
 
 		navegador.findElement(By.xpath("//p[contains(text(),'Condição de Pagamento')]")).click();
 	}
+	
 
 	public void pagamentoAPrazo(String parcela, String opcao) {
 		sleep();
@@ -49,7 +50,7 @@ public class FormaDePagamentoPage {
 		navegador.findElement(By.xpath("//div[@id='done']")).click();
 	}
 
-	public void pagamentoDebito() {
+	public void pagamentoCartaoDebito() {
 
 		sleep();
 		navegador.findElement(By.id("condAVista")).click();
@@ -67,6 +68,19 @@ public class FormaDePagamentoPage {
 		navegador.findElement(By.id("done")).click();
 	}
 
+	
+	public void pagamentoAntecipadoAtacado() {
+		
+		navegador.findElement(By.xpath("//md-select[@id='condAVista']")).click();
+
+		sleep();
+		WebElement antecipado = navegador.findElement(By.xpath("//md-option[contains(.,'Antecipado')]"));
+		act.moveToElement(antecipado).click().perform();
+		
+		sleep();
+		navegador.findElement(By.xpath("//i[contains(text(),'done')]")).click();
+	}
+	
 	public void pagamentoAntecipado() {
 		sleep();
 		navegador.findElement(By.xpath("//md-select[@id='condAVista']")).click();
@@ -75,6 +89,15 @@ public class FormaDePagamentoPage {
 		WebElement antecipado = navegador.findElement(By.xpath("//md-option[contains(.,'Antecipado')]"));
 		act.moveToElement(antecipado).click().perform();
 
+	}
+	
+	public void formaDePagamentoAntecipado(String opcao) {
+		sleep();
+		pagamentoAntecipado();
+		
+		sleep();
+		navegador.findElement(By.xpath("//body/main/div/cart-simulate-condition/div/div/form/div/div/md-tab-group/div/md-tab-body/div/div/div/md-radio-group/div["+ opcao +"]/div[1]/md-radio-button[1]/label[1]/div[2]")).click();
+		
 		sleep();
 		navegador.findElement(By.xpath("//i[contains(text(),'done')]")).click();
 	}
@@ -102,17 +125,35 @@ public class FormaDePagamentoPage {
 
 	public void tipoEntregaPresencial(String tipoEntrega) throws InterruptedException {
 
+		sleep();
 		navegador.findElement(By.xpath("//small[contains(text(),'Presencial')]")).click();
 
 		sleep();
-		navegador.findElement(By.cssSelector("#tipoEntrega > div")).click();
+		navegador.findElement(By.xpath("//md-select[@id='tipoEntrega']//span[@class='mat-select-arrow']")).click();
 
-		WebElement tipo = navegador
-				.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[1]/md-option[" + tipoEntrega + "]"));
-		tipo.sendKeys(tipoEntrega);
-		tipo.sendKeys(Keys.ARROW_DOWN);
-		tipo.sendKeys(Keys.ENTER);
+		
+		sleep();
+		WebElement presencial = navegador
+				.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[1]/md-option[1]"));
+		act.moveToElement(presencial).click().build().perform();
+		
 	}
+
+	
+	public void tipoEntregaEntega(String tipoEntrega) {
+		
+		sleep();
+		navegador.findElement(By.xpath("//small[contains(text(),'Presencial')]")).click();
+
+		sleep();
+		navegador.findElement(By.xpath("//md-select[@id='tipoEntrega']//span[@class='mat-select-arrow']")).click();
+
+		sleep();
+		WebElement entrega = navegador
+				.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[1]/md-option[2]"));
+		act.moveToElement(entrega).click().build().perform();
+	}
+	
 
 	public void condicaoFiscal(String codigoOperacaoFiscal, String texto) {
 

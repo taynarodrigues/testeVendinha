@@ -24,7 +24,7 @@ public class AcrescimoPedidoTest {
 		
 		masterPage = new MasterPage(navegador);
 		
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	
 	@After
@@ -85,7 +85,7 @@ public class AcrescimoPedidoTest {
 	@Test
 	public void deveAplicarAcrescimoPedidoAddClienteAddVendaDebito() throws InterruptedException {
 		
-		masterPage.getCatalogoPage().buscaItem("GBL1119");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("GP30126");
 		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
@@ -101,9 +101,9 @@ public class AcrescimoPedidoTest {
 		masterPage.getDescontoAcrescimoPage().botaoDescontoPedido();
 		masterPage.getDescontoAcrescimoPage().adicionaAcrescimoPedido("342");
 		masterPage.getDescontoAcrescimoPage().aplicarAcrescimo();
-		masterPage.getCarrinhoPage().buscarCliente("MARGARETH NOGUEIRA RODERIGUES");	
+		masterPage.getCarrinhoPage().buscarCliente("FILIPE CELA DE MORAES");	
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
-		masterPage.getFormaPagamentoPage().pagamentoDebito();
+		masterPage.getFormaPagamentoPage().pagamentoCartaoDebito();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getFormaPagamentoPage().administradoraCartao("Cielo");
 		masterPage.getPagamentoPage().irParaCaixa();	

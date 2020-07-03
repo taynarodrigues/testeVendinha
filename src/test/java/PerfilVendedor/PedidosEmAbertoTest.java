@@ -192,7 +192,7 @@ public class PedidosEmAbertoTest {
 		masterpage.getCatalogoPage().inserirItem();
 		masterpage.getCarrinhoPage().irParaCarrinho();
 		masterpage.getFormaPagamentoPage().condicaoPagamento();
-		masterpage.getFormaPagamentoPage().pagamentoDebito();
+		masterpage.getFormaPagamentoPage().pagamentoCartaoDebito();
 		masterpage.getCarrinhoPage().salvarOrcamento();
 		masterpage.getMeuPerfilPage().irParaMeuPerfil();
 		masterpage.getMeuPerfilPage().finalizarPedidoEmAberto("1");

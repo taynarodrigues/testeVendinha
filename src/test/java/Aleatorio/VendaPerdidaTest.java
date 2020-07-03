@@ -22,7 +22,7 @@ public class VendaPerdidaTest {
 		
 		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	
 	@After
@@ -57,7 +57,7 @@ public class VendaPerdidaTest {
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().buscarCliente("FILIPE CELA DE MORAES");
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
-		masterPage.getFormaPagamentoPage().pagamentoDebito();
+		masterPage.getFormaPagamentoPage().pagamentoCartaoDebito();
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getFormaPagamentoPage().administradoraCartao("Redecard");
 		masterPage.getPagamentoPage().irParaCaixa();

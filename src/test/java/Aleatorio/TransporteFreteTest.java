@@ -9,11 +9,12 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import enums.TipoPagamentoEnum;
 import pages.MasterPage;
 import query.QueryVendas;
 import suporte.Web;
 
-public class TransporteTest {
+public class TransporteFreteTest {
 	
 	private WebDriver navegador;
 	private MasterPage masterPage;
@@ -138,6 +139,61 @@ public class TransporteTest {
 		masterPage.getTransportePage().preencheCamposTransporte();
 		masterPage.getPagamentoPage().irParaCaixa();
 		masterPage.getLoginPage().validaTelaLogin();	
+	}
+	
+	
+	@Ignore
+	@Test
+	public void devePreencherTransporteCampoSemFreteAddClienteAddPagamentoDebito() throws InterruptedException {
+		
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("3");
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getCarrinhoPage().buscarCliente("FILIPE CELA DE MORAES");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoCartaoDebito();
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getFormaPagamentoPage().administradoraCartao("Cielo");
+		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
+	}
+	
+	@Ignore
+	@Test
+	public void devePrencherTransporteCampoEmitenteAddClienteAddPagamentoOutros() throws InterruptedException {
+		
+		masterPage.getCatalogoPage().buscaItem("7741");
+		masterPage.getCatalogoPage().inserirItemComQuantidade("4");
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getCarrinhoPage().buscarCliente("FILIPE CELA DE MORAES");
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getPagamentosOutrosPage().PagamentosOutrosDebito();
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentosOutrosPage().addLinha();
+		masterPage.getPagamentosOutrosPage().selecionarFormaPagamento("0", TipoPagamentoEnum.DEBITO.getPagamento(), "60106", TipoPagamentoEnum.CIELO.getAdministradora());
+		masterPage.getPagamentosOutrosPage().selecionarFormaPagamento("1", TipoPagamentoEnum.DEVOLUCAO.getPagamento(), "1054", TipoPagamentoEnum.FITCARD.getAdministradora());
+		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
+	}
+	
+	
+	@Ignore
+	@Test
+	public void deveFinalizarVendaCartaoCredito() throws InterruptedException {
+		
+		masterPage.getCatalogoPage().buscaItem("562");
+		masterPage.getCatalogoPage().inserirItem();
+		masterPage.getCarrinhoPage().irParaCarrinho();
+		masterPage.getFormaPagamentoPage().condicaoPagamento();
+		masterPage.getFormaPagamentoPage().pagamentoCredito("3");
+		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().administradoraCartao("Cielo");
+		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
 	}
 	
 

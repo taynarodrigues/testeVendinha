@@ -84,7 +84,7 @@ public class PagamentoCartaoCreditoTest {
 	@Test
 	public void deveFinalizarVendaCartaoCreditoSemDescontoCF() throws InterruptedException {
 
-		masterPage.getCatalogoPage().buscaItem("GP30126");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCatalogoPage().buscaItem("KSC03202S");
 		masterPage.getCatalogoPage().inserirItem();
@@ -92,6 +92,7 @@ public class PagamentoCartaoCreditoTest {
 		masterPage.getFormaPagamentoPage().condicaoPagamento();
 		masterPage.getFormaPagamentoPage().pagamentoCredito("2");
 		masterPage.getCarrinhoPage().finalizaVenda();
+		masterPage.getPagamentoPage().administradoraCartao("Cielo");
 		masterPage.getPagamentoPage().irParaCaixa();
 		masterPage.getLoginPage().validaTelaLogin();
 	}

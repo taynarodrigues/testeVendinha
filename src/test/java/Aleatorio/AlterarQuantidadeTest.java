@@ -1,11 +1,14 @@
 package Aleatorio;
 
+import java.sql.SQLException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import pages.MasterPage;
+import query.QueryVendas;
 import suporte.Web;
 
 public class AlterarQuantidadeTest {
@@ -18,11 +21,12 @@ public class AlterarQuantidadeTest {
 		
 		navegador = Web.createChrome("http://192.168.151.89");
 		masterPage = new MasterPage(navegador);
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	@After
-	public void tearDown() {
+	public void tearDown() throws ClassNotFoundException, SQLException {
 		
+		masterPage.getMobilePage().realizaSeparacao(QueryVendas.buscaControlePedido());
 		navegador.quit();
 	}
 
@@ -41,6 +45,7 @@ public class AlterarQuantidadeTest {
 		masterPage.getCarrinhoPage().aumentaQuantidade(4, "3");
 		masterPage.getCarrinhoPage().finalizaVenda();
 		masterPage.getPagamentoPage().irParaCaixa();
+		masterPage.getLoginPage().validaTelaLogin();
 		
 		
 	}

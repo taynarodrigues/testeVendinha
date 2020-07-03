@@ -24,7 +24,7 @@ public class PagamentoCartaoCreditoTest {
 		
 		masterPage = new MasterPage(navegador);
 		
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	
 	@After
@@ -39,7 +39,7 @@ public class PagamentoCartaoCreditoTest {
 		
 		masterPage.getCatalogoPage().buscaItem("044840");
 		masterPage.getCatalogoPage().inserirItem();
-		masterPage.getCatalogoPage().buscaItem("NK0405");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getFormaPagamentoPage().condicaoPagamento();

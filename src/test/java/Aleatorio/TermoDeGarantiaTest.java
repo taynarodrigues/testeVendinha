@@ -21,7 +21,7 @@ public class TermoDeGarantiaTest {
 		
 		masterPage = new MasterPage(navegador);
 		
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	
 	@After

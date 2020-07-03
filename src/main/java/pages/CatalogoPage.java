@@ -37,7 +37,8 @@ public class CatalogoPage {
 
 	public void inserirItem() {
 		sleep();
-		navegador.findElement(By.xpath("//i[@class='material-icons shopping-cart-icon']")).click();
+		navegador.findElement(By.xpath("//div[@class='row']//div[2]//div[1]//card-found[1]//div[1]//div[4]//div[3]//div[2]//div[1]//i[2]")).click();
+
 		sleep();
 	}
 
@@ -51,9 +52,10 @@ public class CatalogoPage {
 
 	public void inserirItemComQuantidade(String quant) {
 		sleep();
-		navegador.findElement(By.cssSelector(
-				"#custom-card > card-found > div > div:nth-child(5) > div.card-controls > div.buttons-container > div > i.material-icons.more-horiz-icon"))
-				.click();
+//		navegador.findElement(By.cssSelector(
+//				"#custom-card > card-found > div > div:nth-child(5) > div.card-controls > div.buttons-container > div > i.material-icons.more-horiz-icon"))
+//				.click();
+		navegador.findElement(By.xpath("//div[3]//div[1]//card-found[1]//div[1]//div[4]//div[3]//div[2]//div[1]//i[3]")).click();
 
 		sleep();
 		navegador.findElement(By.xpath("//li[contains(text(),'Adicionar ao carrinho')]")).click();

@@ -23,7 +23,7 @@ public class AdicionaItemTest {
 		
 		masterPage = new MasterPage(navegador);
 		
-		masterPage.getLoginPage().fazLogin("v9437", "v9437");
+		masterPage.getLoginPage().fazLogin("v420", "v420");
 	}
 	
 	@After
@@ -36,9 +36,9 @@ public class AdicionaItemTest {
 	@Test
 	public void deveInserirItem() throws InterruptedException {
 		
-		masterPage.getCatalogoPage().buscaItem("Amortecedor");
+		masterPage.getCatalogoPage().buscaItem("562");
 		masterPage.getCatalogoPage().inserirItem();
-		masterPage.getCatalogoPage().buscaItem("Vela");
+		masterPage.getCatalogoPage().buscaItem("7741");
 		masterPage.getCatalogoPage().inserirItem();
 		masterPage.getCarrinhoPage().irParaCarrinho();
 		masterPage.getCarrinhoPage().finalizaVenda();
